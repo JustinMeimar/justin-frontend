@@ -26,7 +26,7 @@ function Compiler() {
                 </div>
                 <div className="project_compiler_info_body">
                     This a remote window into the NAGC compiler! To use type in the code to execute, or
-                    select from on of the pre-written inputs, then click Run.
+                    select from on of the pre-written inputs, then click Run. NAGC was build by a team of 4.
                 </div>
             </div>
             {terminal}
