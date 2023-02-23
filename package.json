@@ -22,6 +22,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "homepage": "https://justinmeimar.github.io/justin-frontend/",
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build",
     "build": "react-scripts build",
