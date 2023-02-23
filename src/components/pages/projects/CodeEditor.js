@@ -9,7 +9,7 @@ import 'prismjs/themes/prism.css'; //Example style, you can use another
 
 function CodeEditor({ passUpInput }) {
     
-    const [input, setInput] = useState('procedure main() returns integer {\n 123 -> stdout;\n\n return 0;\n}\n\n\n\n\n\n\n');
+    const [input, setInput] = useState('');
 
     const handleInputChange = (newCode) => {
         setInput(newCode);
@@ -20,29 +20,56 @@ function CodeEditor({ passUpInput }) {
         passUpInput(input);
     }, [input, passUpInput]);
 
-    // CURRENTLY NOT USED. Will use to fetch predefined inputs for Gazprea (like mergesort, quicksort ...)
     async function getProgram(program) {
-          
+     
+        console.log("get program: ", program);
         const fetchData = async () => {
-            const get = axios.get(`http://localhost:3001/file?program=${program}`)
+            const get = axios.get(`http://195.88.25.189:80/get-file?program=${program}`)
                 .then(response => {
-                    setInput(response.data); 
+                    return response.data; 
                 }); 
+            return get;
         }
-        fetchData();        
+        return fetchData();        
+    }
+    
+    async function load_program(selected_value) {
+            const output = await getProgram(selected_value);
+            setInput(output);  
+    }
+
+    const input_dropdown = () => {
+
+        const compiler_input = (
+            <div className="input selection">
+                <select onChange={(event) => load_program(event.target.value)}>
+                    <option value="input_compiler_mergesort.txt">mergesort</option>
+                    <option value="input_compiler_quicksort.txt">quicksort</option>
+                    <option value="input_compiler_generator.txt">generator</option>
+                    <option value="3">while loop</option>
+                    <option value="4">matrix</option>
+                    <option value="5">heavy-duty</option>
+                </select>
+            </div>
+
+        );
+        const nfa_regex_input = (
+            <div className="input selection">
+                <select>
+                    <option value="nfa-regex">a's or b's</option>
+                    <option value="b-tree">input 2</option>
+                    <option value="other">Other</option>
+                </select> 
+            </div>
+        );
+        return (
+            compiler_input 
+        ); 
     }
     
     return (
         <div className="code_editor_component">
             {/* Program Selector Dropdown */}
-            <div className="input selection">
-                <select>
-                    <option value="nfa-regex">input 1</option>
-                    <option value="b-tree">input 2</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
             {/* Editor */} 
             <div className="code_editor">
                 <Editor
@@ -52,11 +79,12 @@ function CodeEditor({ passUpInput }) {
                     padding={10}
                     style={{
                         fontFamily: '"Fira code", "Fira Mono", monospace',
-                        fontSize: 12,
+                        fontSize: 16,
                         backgroundColor: '#f5f5f5',
                         border: '2px solid #ddd',
                     }}
                 />
+                { input_dropdown() }
             </div> 
         </div> 
     );

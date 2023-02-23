@@ -1,35 +1,39 @@
-.projects_container {
-  width: 50%;
-  margin: 0 auto;
-}
-
-.project_container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  padding: 10px;
-  margin: 10px;
-  position: relative;
-}
-
-.project_container:hover {
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
-}
-
 .project_title {
   font-size: 24px;
   font-weight: bold;
-  text-align: center;
   margin-bottom: 10px;
 }
 
+.project_container {
+  width: 50%; 
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  margin-top: 40px;
+}
+
+.project_container:hover .project_title{
+  color: rgb(133, 174, 255);
+}
+
+.project_title_lang_container {
+  display: flex;
+}
+
+#Rust {
+  color: rgb(216, 104, 0);
+}
+
 .project_language {
-  font-size: 16px;
+  font-size: 18px;
   font-style: italic;
-  text-align: center;
-  margin-bottom: 10px;
+  margin-top: 7px;
+  margin-left: 10px;
+  color: rgb(14, 116, 225);
+}
+
+.project_date {
+  font-size: 18px;
+  margin-bottom: 5px;
 }
 
 .project_description {

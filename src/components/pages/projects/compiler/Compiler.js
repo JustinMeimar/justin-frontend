@@ -2,6 +2,7 @@ import { React, useState } from 'react';
 
 import CodeEditor from '../CodeEditor'; 
 import HttpTerminal from '../HttpTerminal'
+import '../../css/Compiler.css'
 
 function Compiler() {
     
@@ -19,24 +20,17 @@ function Compiler() {
 
     return(
         <div className="Project">  
-            This is the compiler project page. 
+            <div className="project_compiler_info_container">
+                <div className="project_compiler_title">
+                    NAGC Vector Language Compiler 
+                </div>
+                <div className="project_compiler_info_body">
+                    This a remote window into the NAGC compiler! To use type in the code to execute, or
+                    select from on of the pre-written inputs, then click Run.
+                </div>
+            </div>
             {terminal}
             {editor}
-            <select onChange={() => loadProgram}>
-                <option value="0">mergesort</option>
-                <option value="1">quicksort</option>
-                <option value="2">fibonacci</option>
-                <option value="3">while loop</option>
-                <option value="4">matrix</option>
-                <option value="5">heavy-duty</option>
-            </select>
-            <div class="dropdown-menu">
-  <h6 class="dropdown-header">Dropdown header</h6>
-  <a class="dropdown-item" href="#">Action</a>
-  <a class="dropdown-item" href="#">Another action</a>
-</div>
-
-
         </div>     
     );
 }
