@@ -6,7 +6,7 @@ import Compiler from './pages/projects/compiler/Compiler.js';
 
 function MainRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/about/" element={<AboutPage></AboutPage>} />
