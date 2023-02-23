@@ -1,8 +1,8 @@
-import {HashRouter as Router, Route, Link, BrowserRouter, Routes} from 'react-router-dom';
+import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import HomePage from "./pages/HomePage.js";
 import ProjectsPage from "./pages/ProjectsPage.js";
 import AboutPage from './pages/AboutPage.js';
-import ResumePDF from '../static/Resume.pdf'
+import Compiler from './pages/projects/compiler/Compiler.js';
 
 function MainRouter() {
   return (
@@ -11,6 +11,11 @@ function MainRouter() {
             <Route path="/" element={<HomePage/>}/>
             <Route path="/about/" element={<AboutPage></AboutPage>} />
             <Route path="/projects/" element={<ProjectsPage/>} />
+
+            <Route path="/projects/compiler" element={<Compiler/>} />
+            <Route path="/projects/b-tree" element={<Compiler/>} />
+            <Route path="/projects/nfa-regex" element={<Compiler/>} />
+        
         </Routes>
     </BrowserRouter>
      

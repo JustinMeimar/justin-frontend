@@ -8,7 +8,7 @@ function TopNavigation() {
             <a href="/">Home </a> 
             <a href="/projects">Projects</a> 
             <a href="/about">About</a> 
-            <a href={ResumePDF} target="_blank">Resume</a> 
+            <a href={ResumePDF} target="_blank" rel="noreferrer">Resume</a> 
         </div>
     );
 }

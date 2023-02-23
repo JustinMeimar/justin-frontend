@@ -1,0 +1,38 @@
+.projects_container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.project_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  position: relative;
+}
+
+.project_container:hover {
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
+
+.project_title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project_language {
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.project_description {
+  font-size: 16px;
+  text-align: left;
+}
