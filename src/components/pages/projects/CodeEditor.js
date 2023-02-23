@@ -9,7 +9,7 @@ import 'prismjs/themes/prism.css'; //Example style, you can use another
 
 function CodeEditor({ passUpInput }) {
     
-    const [input, setInput] = useState('function add(a, b) {\n  return a + b;\n}');
+    const [input, setInput] = useState('procedure main() returns integer {\n 123 -> stdout;\n\n return 0;\n}\n\n\n\n\n\n\n');
 
     const handleInputChange = (newCode) => {
         setInput(newCode);
