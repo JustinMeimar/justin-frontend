@@ -8,6 +8,8 @@ function MainRouter() {
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Routes>
+
+            <Route path="/justin-frontend/" element={<HomePage/>}/>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/about/" element={<AboutPage></AboutPage>} />
             <Route path="/projects/" element={<ProjectsPage/>} />
