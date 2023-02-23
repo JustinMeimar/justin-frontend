@@ -29,18 +29,19 @@ function HttpTerminal({program, input}) {
     }
            
     const commands = {
-        money : {
+        ls : {
             description: 'Echo a passed string.',
-            usage: 'money',
+            usage: 'ls',
             fn: () => {
                 const term = terminal.current;
-                term.pushToStdout("this is secret command.", true);
+                term.pushToStdout("compiler nfa-regex btree", true);
             }
         }
     }
 
     const runCommand = () => {
         const term = terminal.current;
+        awaitProgramOutput(program, input);
         term.pushToStdout("just ran a program");
     }
 

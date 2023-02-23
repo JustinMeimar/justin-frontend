@@ -3,15 +3,23 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import axios from 'axios';
 import "../css/CodeEditor.css"
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism.css'; //Example style, you can use another
 
 function CodeEditor({ passUpInput }) {
     
-    const [input, setInput] = useState('aUbUc');
+    const [input, setInput] = useState('function add(a, b) {\n  return a + b;\n}');
 
     const handleInputChange = (newCode) => {
         setInput(newCode);
+        passUpInput(input);
     };
-      
+        
+    useEffect(() => {
+        passUpInput(input);
+    }, [input, passUpInput]);
+
     // CURRENTLY NOT USED. Will use to fetch predefined inputs for Gazprea (like mergesort, quicksort ...)
     async function getProgram(program) {
           
@@ -26,12 +34,21 @@ function CodeEditor({ passUpInput }) {
     
     return (
         <div className="code_editor_component">
-            {/* Editor */}
+            {/* Program Selector Dropdown */}
+            <div className="input selection">
+                <select>
+                    <option value="nfa-regex">input 1</option>
+                    <option value="b-tree">input 2</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            {/* Editor */} 
             <div className="code_editor">
                 <Editor
                     value={input}
                     onValueChange={handleInputChange}
-                    highlight={(code) => highlight(code, languages.javascript, 'javascript')}
+                    highlight={(input) => highlight(input, languages.js)}
                     padding={10}
                     style={{
                         fontFamily: '"Fira code", "Fira Mono", monospace',
@@ -41,20 +58,6 @@ function CodeEditor({ passUpInput }) {
                     }}
                 />
             </div> 
-             
-            {/* Run Code Button */}
-            <button onClick={() => {passUpInput(input)}}> Run Code </button> 
-                
-            {/* Program Selector Dropdown */}
-            <div className="input selection">
-                <select>
-                    <option value="nfa-regex">input 1</option>
-                    <option value="b-tree">input 2</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            
-
         </div> 
     );
 }
