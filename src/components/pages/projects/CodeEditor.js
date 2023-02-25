@@ -24,8 +24,9 @@ function CodeEditor({ passUpInput }) {
      
         console.log("get program: ", program);
         const fetchData = async () => {
-            const get = axios.get(`http://195.88.25.189:80/get-file?program=${program}`)
+            const get = axios.get(`https://195.88.25.189:3443/get-file?program=${program}`)
                 .then(response => {
+                    console.log(response.data);
                     return response.data; 
                 }); 
             return get;
@@ -66,18 +67,6 @@ function CodeEditor({ passUpInput }) {
             compiler_input 
         ); 
     }
-
-    async function testHttps() { 
-        const fetchData = async () => {
-            const get = axios.get(`https://195.88.25.189:3443/`)
-                .then(response => {
-                    console.log("recieved response from port 3443"); 
-                    return response.data; 
-                }); 
-            return get;
-        }
-        return fetchData();        
-    }
     
     return (
         <div className="code_editor_component">
@@ -97,7 +86,6 @@ function CodeEditor({ passUpInput }) {
                     }}
                 />
                 { input_dropdown() }
-                <button onClick={() => {testHttps()}}>Test Https</button>
             </div> 
         </div> 
     );
