@@ -6,11 +6,6 @@ import '../css/HttpTerminal.css';
 
 // wait for the server to run the program and return the stdout
 async function awaitProgramOutput(program, input) {
-
-    const parseOutput = (output, char) => {
-        const arr = output.split('\n');
-        return arr.join(`${char}\n`)
-    }
     
     const fetchData = async () => {
 

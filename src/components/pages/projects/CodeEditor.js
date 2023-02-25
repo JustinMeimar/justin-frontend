@@ -66,6 +66,18 @@ function CodeEditor({ passUpInput }) {
             compiler_input 
         ); 
     }
+
+    async function testHttps() { 
+        const fetchData = async () => {
+            const get = axios.get(`https://195.88.25.189:3443/`)
+                .then(response => {
+                    console.log("recieved response from port 3443"); 
+                    return response.data; 
+                }); 
+            return get;
+        }
+        return fetchData();        
+    }
     
     return (
         <div className="code_editor_component">
@@ -85,6 +97,7 @@ function CodeEditor({ passUpInput }) {
                     }}
                 />
                 { input_dropdown() }
+                <button onClick={() => {testHttps()}}>Test Https</button>
             </div> 
         </div> 
     );
