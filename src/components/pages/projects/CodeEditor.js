@@ -7,17 +7,17 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism.css'; //Example style, you can use another
 
-function CodeEditor({ passUpInput }) {
+function CodeEditor({ passUpInput, default_input, default_program }) {
     
-    const [input, setInput] = useState('');
-
+    const [input, setInput] = useState(default_input);
+    
     const handleInputChange = (newCode) => {
         setInput(newCode);
         passUpInput(input);
     };
         
     useEffect(() => {
-        passUpInput(input);
+        passUpInput(input); 
     }, [input, passUpInput]);
 
     async function getProgram(program) {
@@ -39,20 +39,33 @@ function CodeEditor({ passUpInput }) {
             setInput(output);  
     }
 
+    const handleProgramSelection = (event) => {
+        const program_path = event.target.getAttribute("data-value"); 
+        load_program(program_path);
+    }
+
     const input_dropdown = () => {
 
         const compiler_input = (
-            <div className="input selection">
-                <select onChange={(event) => load_program(event.target.value)}>
-                    <option value="input_compiler_mergesort.txt">mergesort</option>
-                    <option value="input_compiler_quicksort.txt">quicksort</option>
-                    <option value="input_compiler_generator.txt">generator</option>
-                    <option value="3">while loop</option>
-                    <option value="4">matrix</option>
-                    <option value="5">heavy-duty</option>
-                </select>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select Program
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" data-value="input_compiler_helloworld.txt" onClick={handleProgramSelection}>Hello, World</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-value="input_compiler_quicksort.txt" onClick={handleProgramSelection}>Quick Sort</a>
+                    <a class="dropdown-item" data-value="input_compiler_mergesort.txt" onClick={handleProgramSelection}>Merge Sort</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-value="input_compiler_filter.txt" onClick={handleProgramSelection}>Filter</a>
+                    <a class="dropdown-item" data-value="input_compiler_generator.txt" onClick={handleProgramSelection}>Generator</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-value="input_compiler_vector.txt" onClick={handleProgramSelection}>Vector</a>
+                    <a class="dropdown-item" data-value="input_compiler_matrix.txt" onClick={handleProgramSelection}>Matrix</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-value="input_compiler_fibonnaci.txt" onClick={handleProgramSelection}>Fibonnaci</a>
+                </div>
             </div>
-
         );
         const nfa_regex_input = (
             <div className="input selection">
@@ -63,16 +76,19 @@ function CodeEditor({ passUpInput }) {
                 </select> 
             </div>
         );
-        return (
-            compiler_input 
-        ); 
+        if (default_program == "gazprea") {
+            return ( compiler_input );
+        } else if (default_program == "nfa-regex") {
+            return ( nfa_regex_input );
+        } 
+         
     }
     
     return (
         <div className="code_editor_component">
             {/* Program Selector Dropdown */}
-            {/* Editor */} 
             <div className="code_editor">
+                { input_dropdown() }
                 <Editor
                     value={input}
                     onValueChange={handleInputChange}
@@ -85,7 +101,6 @@ function CodeEditor({ passUpInput }) {
                         border: '2px solid #ddd',
                     }}
                 />
-                { input_dropdown() }
             </div> 
         </div> 
     );

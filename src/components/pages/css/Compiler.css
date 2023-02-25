@@ -11,4 +11,23 @@
 
 .project_compiler_info_body {
     margin-bottom: 10px;
-} 
+}
+
+.editor-terminal-container {
+    display: flex;
+    justify-content: center; 
+}
+
+.editor-wrapper {
+    margin-right: 20px;
+}
+
+.code_editor_component {
+    /* height: 100px; */
+    width: 600px;
+}
+
+.terminal_div {
+    margin-top: 35px;
+    width: 700px;
+}

@@ -56,11 +56,14 @@ const navigate = useNavigate();
         const projects = Object.keys(project_descriptions).map((key) => {
       const { title, description, date, lang } = project_descriptions[key];
       return (
-        <div key={title} className="project_container" onClick={() => linkProject(key)}> <div className="project_title_lang_container">
+        <div key={title} className="project_container" onClick={() => linkProject(key)}>
+                <div className="project_title_lang_container">
                   <div className="project_title">
                     {title}
                   </div> 
-                  <div className="project_language" id={lang}>{lang}</div>
+                  <div className="project_language" id={lang}>
+                    {lang}
+                  </div>
                 </div> 
                 
                 <div className="project_date">{date}</div>
