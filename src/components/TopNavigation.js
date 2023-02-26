@@ -1,5 +1,7 @@
 import { React } from 'react';
-import ResumePDF from '../static/Resume.pdf'
+import ResumePDF from '../static/Resume.pdf';
+import githubLogo from '../static/github.png';
+import { Link }  from 'react-router-dom';
 
 function TopNavigation() {
 
@@ -8,10 +10,10 @@ function TopNavigation() {
 
             <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4">
-                    <div class="bg-dark p-2">
-                        <h4 class="text-white">Github</h4>
-                        <span class="text-muted">See where this website was created.</span>
+                <div class="bg-dark p-4" >
+                    <div class="bg-dark p-2" onClick={() => window.location.href="https://github.com/JustinMeimar"}>
+                        <h4 class="text-white" >Github</h4>   
+                        <span class="text-muted">To see how this website was created.</span>
                     </div>
                 </div>
             </div>

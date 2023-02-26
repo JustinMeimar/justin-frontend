@@ -1,6 +1,25 @@
 .about-me-title {
     font-size: 28px;
+    display: flex;
+    margin-top: 40px;
 }
+.about-me {
+    margin-right: 30px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 20%;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:5px;
+}
+.about-this-page {
+    margin-right: 30px;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:5px;
+}
+
 .home_page_info {
     text-align: left;
 }
@@ -10,4 +29,9 @@
 .aboutPage {
     width: 35%;
     margin: auto;
+}
+
+.selector {
+    align-items: center;
+    justify-content: center;
 }

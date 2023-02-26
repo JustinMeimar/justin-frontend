@@ -1,16 +1,93 @@
-import { React } from 'react';
-import "./css/AboutPage.css" 
+import React, { useState } from 'react';
+import './css/AboutPage.css';
 
 function AboutPage() {
 
+    // const backgroundRGB = "#88D8FF";
+    // const backgroundRGB = "#A7D3FF ";
+    const backgroundRGB = "#70C3FF ";
+    const [showAbout, setShowAbout] = useState(true);
+    const [aboutMeColor, setAboutMeColor] = useState(backgroundRGB);
+    const [aboutPageColor, setAboutPageColor] = useState('white');
+
+    const clickAboutMe = (event) => {
+        setShowAbout(true);
+        setAboutMeColor(backgroundRGB);
+        setAboutPageColor('white');
+    }
+
+    const clickAboutPage = (event) => {
+        setShowAbout(false);
+        setAboutMeColor('white');
+        setAboutPageColor(backgroundRGB);
+    }
+
     return (
-        <div className="aboutPage"> 
+        <div className="aboutPage">
             <div className="about-me-title">
+                <br />
+                <div className="about-me" style={{backgroundColor: aboutMeColor}} onClick={clickAboutMe}>
+                    About me
+                </div>
+                <div className="about-this-page" style={{backgroundColor: aboutPageColor}} onClick={clickAboutPage}>
+                    About this page
+                </div>
+        </div>
+            {showAbout ? about_me_info() : about_page_info()}
+        </div>
+    );
+}
+
+const about_page_info = () => {
+    return (
+        <div className="about_page_info">
             
-            <br></br> 
-                About me.
-            </div>
-            <div className="home_page_info">
+            <br></br>
+           The idea for this page came after many failed attempts to create Javascript GUI
+           visualizations of some C++, Rust and other low-level implementations so that others could
+           see my reclusive command line programs. 
+          
+           <br></br>
+           <br></br>
+           I originally planned to create a remote shell window that would allow the user
+           to execute the binaries on a server as well as run other commands. However, I quickly
+           realized that there were some obvious risks in creating a publicly accessible remote shell
+           into my server. <br></br>(rm -rf anything)
+
+
+           <br></br>
+           <br></br>
+           The current model involves a text editor, which can be pre-filled by a GET request for some
+           defined input programs, and a terminal emulator, which displays the results of the program execution.
+
+
+           <br></br>
+           <br></br>
+           When the user clicks "Run" a POST request is sent with the program and input to run.
+           The client waits for the server spawn a subprocess to execute the input on the program and respond with the stdout and
+           stderr. Once received, the client writes the stdout/err onto the terminal, just as if the user had
+           run the program locally!
+
+
+           <br></br>
+           <br></br>
+           The inputs are also not restrained to the dropdown selection. The user can input any input they want
+           by using the Editor component. Especially in the case of the Compiler, this makes it great for experimenting
+           with the language features for oneself.
+      
+           <br></br>
+           <br></br>
+           The terminal still has some functionality, however the available commands are on a whitelist model. Only commands 
+           such as ls and clear etc. are so far allowed.
+
+        </div>
+    );
+}
+
+const about_me_info = () => {
+    return (
+       
+        <div className="home_page_info">
             
             <br></br> 
             Hello, I’m Justin, a third year computer science student at the 
@@ -44,25 +121,18 @@ function AboutPage() {
             Last summer, I gained some real world experience working as a Full Stack 
             at a <a href="https://bitsinglass.com/" target='_blank'>Bits In Glass</a>
             , a local Edmonton company. There I learned the ropes of AGILE development
-            where we operated in two-week sprints. I was lucky to be placed on a project 
-            at its inception and see it fully through its ~3 month development cylce. 
+            where we operated in two-week sprints. I was fortunate to be placed on my project 
+            at its inception and observe the entire development cylce. 
             
            
             <br></br> <br></br>
-            Outside of computers, I enjoy reading, running and playing sports like hockey
+            Outside of computers, I enjoy reading, running and playing sports such as hockey
             and soccer. This is my   
             <a href="https://www.goodreads.com/user/show/137002609-justin-meimar" 
                 target='_blank' > GoodReads</a> profile, though if I'm in school my 
                 book completion rate falls enormously.
             </div>
-            
-            <br></br> <br></br> 
-            <div className="about-page-title">
-                About this page.
-            </div>
-        </div> 
-        
     );
-}
+};
 
 export default AboutPage;
