@@ -85,7 +85,7 @@ function Compiler() {
             <div class="alert"> 
                 <div class="alert alert-warning" role="alert">
                     My SSL certificate is currently being verfied. If the dropdown is unresponsive, please allow the connection to my server to use. HTTPS should be here in a couple days at most.
-                    Please allow <a href="https://195.88.25.189:3433/post">my server ip</a>
+                    There should be a ip address link in one of the console errors. 
                 </div>
             </div>
             <div className="project_compiler_info_container">
