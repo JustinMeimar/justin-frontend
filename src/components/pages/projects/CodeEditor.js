@@ -47,7 +47,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
     const input_dropdown = () => {
 
         const compiler_input = (
-            <div class="btn-group">
+            <div class="btn-group" style={{"margin-bottom": "10px"}}>
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Program
                 </button>
@@ -84,6 +84,24 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
          
     }
     
+    async function awaitRequest() {
+
+        const fetchData = async () => {
+            const get = axios.get(`https://www.justin-terminal-server.com:3443/get-file?program=${"input_compiler_vector.txt"}`)
+                .then(response => {
+                    console.log(response.data);
+                    return response.data; 
+                }); 
+            return get;
+        }
+        return fetchData();       
+    }
+
+    const makeRequest = () => {
+        console.log("make a request");
+        awaitRequest();
+    }
+
     return (
         <div className="code_editor_component">
             {/* Program Selector Dropdown */}
@@ -102,6 +120,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     }}
                 />
             </div> 
+            {/* <button onClick={() => {makeRequest()}}>test domain</button> */}
         </div> 
     );
 }

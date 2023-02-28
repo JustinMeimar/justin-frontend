@@ -1,0 +1,11 @@
+.project {
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.project-description {
+    font-size: 36px;
+    width: 50%;
+    margin: auto;
+}

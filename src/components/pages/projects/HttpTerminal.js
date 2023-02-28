@@ -49,12 +49,12 @@ function HttpTerminal({program, input}) {
 
     return( 
         <div className="terminal_div">        
+            <button type="button" style={{"margin-bottom": "10px"}} class="btn btn-success" onClick={() => {runCommand()}}>Run</button>
             <Terminal
                 ref={terminal}
                 commands={commands}
                 promptLabel={'justin@webstite:~$'} >  
             </Terminal>
-            <button type="button" class="btn btn-outline-primary" onClick={() => {runCommand()}}>Run</button>
         </div> 
     );
 }

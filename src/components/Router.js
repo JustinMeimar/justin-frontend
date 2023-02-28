@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage.js";
 import ProjectsPage from "./pages/ProjectsPage.js";
 import AboutPage from './pages/AboutPage.js';
 import Compiler from './pages/projects/compiler/Compiler.js';
+import RegexParser from './pages/projects/regex-parser/RegexParser.js';
 
 function MainRouter() {
   return (
@@ -15,8 +16,9 @@ function MainRouter() {
             <Route path="/projects/" element={<ProjectsPage/>} />
 
             <Route path="/projects/compiler" element={<Compiler/>} />
-            <Route path="/projects/b-tree" element={<Compiler/>} />
-            <Route path="/projects/nfa-regex" element={<Compiler/>} />
+            <Route path="/projects/b-tree" element={<RegexParser/>} />
+            <Route path="/projects/nfa-regex" element={<RegexParser/>} />
+            <Route path="/projects/vn-8bit" element={<RegexParser/>} />
         
         </Routes>
     </BrowserRouter>

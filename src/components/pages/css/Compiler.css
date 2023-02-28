@@ -1,5 +1,5 @@
 .project_compiler_info_container {    
-    width: 50%;
+    width: 70%;
     margin: auto;
     margin-top: 30px;
 }
@@ -28,6 +28,32 @@
 }
 
 .terminal_div {
-    margin-top: 35px;
     width: 700px;
+}
+
+.gazprea_about {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.gazprea_background {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.gazprea_features {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.gazprea_technical {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.gazprea_instructions{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
 }

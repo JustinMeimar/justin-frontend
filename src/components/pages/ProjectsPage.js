@@ -40,7 +40,7 @@ function ProjectsPage() {
         only 4Kb program memory, small address range for jumps, etc. The assembler handles label aliasing and conversion to binary instruction format.",
         date: "2021-07-01",
         lang: "Rust",
-        url:"/projects/nfa-regex"
+        url:"/projects/vn-8bit"
         }
     };
 
