@@ -12,7 +12,7 @@ async function awaitProgramOutput(program, input) {
         console.log("program:", program);
         console.log("input:", input);
 
-        const post = axios.post('https://195.88.25.189:3443/post', {"program": program, "input" : input})
+        const post = axios.post('https://justin-terminal-server.com:3443/post', {"program": program, "input" : input})
             .then(response => {
                 console.log("response:", response.data.stdout);
                 return response.data.stdout;
