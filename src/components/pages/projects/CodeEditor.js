@@ -120,7 +120,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     }}
                 />
             </div> 
-            <button onClick={() => {makeRequest()}}>test domain</button>
+            {/* <button onClick={() => {makeRequest()}}>test domain</button> */}
         </div> 
     );
 }
