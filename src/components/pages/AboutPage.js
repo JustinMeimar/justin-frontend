@@ -127,9 +127,7 @@ const about_me_info = () => {
            
             <br></br> <br></br>
             Outside of computers, I enjoy reading, running and playing sports such as hockey
-            and soccer. This is my   
-            <a href="https://www.goodreads.com/user/show/137002609-justin-meimar" 
-                target='_blank' > GoodReads</a> profile, though if I'm in school my 
+            and soccer. I enjoy reading, although if I'm in school my 
                 book completion rate falls enormously.
             </div>
     );
