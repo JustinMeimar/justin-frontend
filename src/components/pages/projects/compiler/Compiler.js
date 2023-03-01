@@ -82,12 +82,6 @@ function Compiler() {
 
     return(
         <div className="Project"> 
-            <div class="alert"> 
-                <div class="alert alert-warning" role="alert">
-                    My SSL certificate is currently being verfied. If the dropdown is unresponsive, please allow the connection to my server to use. HTTPS should be here in a couple days at most.
-                    There should be a ip address link in one of the console errors. 
-                </div>
-            </div>
             <div className="project_compiler_info_container">
                 <div className="project_compiler_title">
                     NAGC Vector Language Compiler 
