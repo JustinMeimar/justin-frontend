@@ -113,7 +113,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     highlight={(input) => highlight(input, languages.js)}
                     padding={10}
                     style={{
-                        fontFamily: '"Fira code", "Fira Mono", monospace',
+                        fontFamily: '"Fira", "Fira Mono", monospace',
                         fontSize: 16,
                         backgroundColor: '#f5f5f5',
                         border: '2px solid #ddd',

@@ -14,8 +14,10 @@ async function awaitProgramOutput(program, input) {
 
         const post = axios.post('https://justin-terminal-server.com:3443/post', {"program": program, "input" : input})
             .then(response => {
-                console.log("response:", response.data.stdout);
-                return response.data.stdout;
+                if (response.data.stdout ) {
+                    return response.data.stdout;
+                } 
+                return response.data.stderr;
             }); 
         
         return post;

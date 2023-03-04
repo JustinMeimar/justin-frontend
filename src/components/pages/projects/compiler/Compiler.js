@@ -39,6 +39,7 @@ function Compiler() {
                     <div className="gazprea_instructions"> 
                     Below is a remote window into our implementation -- the NAGC (Not Another Gazprea Compiler) compiler! Just select from one of the predefined inputs or type in 
                     the editor to design your own programs. Press Run to execute!
+                        <br></br> <br></br>
                     </div>
                 </div>
                 </div> 
@@ -52,6 +53,7 @@ function Compiler() {
                     
                     <div className="gazprea_background">
                     In the CMPUT 415 Compilers class, we implemented the language specification in six teams of four. The compilers were tested against one another in a tournament where each team's unit tests were run against one another. This Compiler came first place! 
+                        <br></br> <br></br>
                     </div>
                 </div>
             );
@@ -62,7 +64,13 @@ function Compiler() {
                         Language Features
                     </div>
                     <div className="gazprea_features">
-                    Gazprea has built in operators such as dot product and matrix multiplication that are defined over the vector and matrix types. Additionally, Gazprea has high-level vector and matrix constructors called generators and filters, which allow the programmer to specify a pattern from which to build an object. Construction of a vector of even numbers, squares etc can be generated in a single line using these features. See “generator” and “filter” inputs.
+                    Gazprea has operators like dot product and matrix multiplication that work with vector and matrix types. 
+                    It also has generators and filters, which are high-level constructors that allow the programmer to create objects based on a pattern. 
+                    With these features, it's easy to construct vectors with even numbers or squares in a single line. 
+                    Check out the "generator" and "filter" inputs.
+                    Other Language features include, static type checking, forward declaration of functions, recursive typedefs, build in vector and matrix iterators,
+                    const and var type qualifiers and built in Null and Identity types. 
+                        <br></br> <br></br>
                     </div>
                 </div>
             );
@@ -73,7 +81,14 @@ function Compiler() {
                         Technical Details
                     </div>
                     <div className="gazprea_technical">
-                    We use the C++ bindings for the ANTLR parser generator in our front end. ANTLR allows you to specify context free grammars and will generate a parse tree automatically. Once we had the parse tree, we implemented several walks. First to convert the parse tree into an AST (to reduce redundancy and make the expressions simple.) Then a symbol definition walk, where ID’s were put into the symbol table for every variable declaration in the program. Then a symbol resolution walk, where instances of every variable were resolved with annotated types. Second last, we did a type checking walk, where we enforced some type rules based on each operator in the program and the variables used with it. Lastly we do our code-generation walk, where we produce LLVM IR. The codegeneration walk lays down the controlflow, basic blocks, functions in LLVM IR, and makes external function calls to the C runtime for much of the core computations. In the end, we can compile our LLVM IR file down to an object file, link it with the runtime object, and produce an executable. Then running a Gazprea program is as easy as using GCC!
+                        We used the C++ bindings for ANTLR, a parser generator, in our front end to generate parse trees from context-free grammars. 
+                        The compiler will perform several walks, including converting the parse tree to an AST, 
+                        defining symbols in a symbol table, resolving variable instances with annotated types, 
+                        type checking based on operator and variable usage, and finally, generating LLVM IR for code generation. 
+                        <br></br> <br></br>
+                        The resulting LLVM IR file can be compiled into an object file, linked with a runtime library that leverages compatibility betwen C and LLVM IR types, and turned into an executable.
+                        Once an executable, running a Gazprea program is as easy as using GCC! (But with way, way less flags.)
+                        <br></br> <br></br>
                     </div> 
                 </div>
             );
