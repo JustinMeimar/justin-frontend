@@ -39,7 +39,12 @@ function Compiler() {
                     <div className="gazprea_instructions"> 
                     Below is a remote window into our implementation -- the NAGC (Not Another Gazprea Compiler) compiler! Just select from one of the predefined inputs or type in 
                     the editor to design your own programs. Press Run to execute!
-                        <br></br> <br></br>
+                        <br></br> 
+                        <br></br> 
+                    
+                    Authors of NAGC: James Le, Tianming Han, Ian Cho and Justin Meimar
+                        <br></br> 
+                        <br></br> 
                     </div>
                 </div>
                 </div> 
@@ -52,7 +57,9 @@ function Compiler() {
                     </div>
                     
                     <div className="gazprea_background">
-                    In the CMPUT 415 Compilers class, we implemented the language specification in six teams of four. The compilers were tested against one another in a tournament where each team's unit tests were run against one another. This Compiler came first place! 
+                    In the CMPUT 415 Compilers class, we implemented the language specification in six teams of four. The compilers were tested against one another in a tournament where each team's unit tests were run against one another. 
+                    This Compiler came first place!  
+                    
                         <br></br> <br></br>
                     </div>
                 </div>
