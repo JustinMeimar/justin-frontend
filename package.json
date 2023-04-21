@@ -15,16 +15,19 @@
     "react": "^18.2.0",
     "react-console-emulator": "^5.0.2",
     "react-dom": "^18.2.0",
+    "react-graph-vis": "^1.0.7",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-simple-code-editor": "^0.13.1",
+    "vis-data": "^7.1.6",
+    "vis-network": "^9.1.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "homepage": "https://justinmeimar.github.io/justin-frontend/",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
