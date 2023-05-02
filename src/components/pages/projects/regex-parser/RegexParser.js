@@ -94,7 +94,7 @@ function RegexParser() {
 
     async function getNfa(expr, string) {
         try {
-            const res = await axios.get(`https://localhost:3443/api/regex/${expr}/${string}`);
+            const res = await axios.get(`https://justin-terminal-server.com/api/regex/${expr}/${string}`);
             return res.data;
         } catch(error) {
             return null
