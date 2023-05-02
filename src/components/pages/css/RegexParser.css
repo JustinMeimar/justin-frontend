@@ -1,11 +1,50 @@
-.project {
-    margin: auto;
-    text-align: center;
-    margin-top: 50px;
+/* style.css */
+
+.Project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .project-description {
-    font-size: 36px;
-    width: 50%;
-    margin: auto;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+  text-align: center;
+}
+
+.description-text {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.expreesion_text,
+label {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.regex-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.regex-buttons .btn {
+  margin: 0 10px;
+}
+
+.regex-graph {
+  width: 80%;
+  border: 2px solid #000; /* Add this line */
+}
+
+input[type="text"] {
+  margin-left: 10px;
+}
+
+.success-message {
+  margin-left: 20px;
 }

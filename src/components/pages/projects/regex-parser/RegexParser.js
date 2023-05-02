@@ -12,43 +12,77 @@ function RegexParser() {
     const [accept, setAccept] = useState(false);
     const [acceptMessage, setAcceptMessage] = useState(true);
     const [graph, setGraph] = useState({nodes: [], edges: []});
+    const [startState, setStartState] = useState(0);
+    const [acceptStates, setAcceptStates] = useState([]); 
     const [states, setStates] = useState([]);   
     const [edges, setEdges] = useState([]);   
     const ref = useRef(null);    
 
-    useEffect(() => {
-        if (edges && states && ref.current) {
-            
-            ref.current.setData({nodes: [], edges: []});
+    const populateGraphStates = (nodesArray) => {
+        states.forEach(s => { 
+            const stateId = (s == startState) ? "s" : s;
+            const stateColor = (acceptStates.includes(s)) ? "#19ff75" : (s == startState ? "#8aedff" : "#ffffff");
+            const graph_state = {
+                id: s,
+                label: 'q'+stateId.toString(),
+                color: {
+                    background: stateColor, 
+                    border: '#000000',   
+                    highlight: {          
+                        background: stateColor,
+                        border: '#000000'
+                    }
+                }
+            }; 
+            nodesArray.push(graph_state);                
+        }); 
+        const emptyState = {
+            id: -1, 
+            label:'start', 
+            color: {
+                background: "#fff", 
+                border: "#fff",  
+                highlight: {          
+                    background: "#fff",
+                    border: '#fff'
+                }
+            } 
+        }
+        nodesArray.push(emptyState);
+        
+        return nodesArray;
+    }
 
+    const populateGraphEdges = (edgesArray) => {
+        edges.forEach(e => { 
+            const edgeColor = (e['sigma'] == -50) ? '#000000': '#000000';
+            const label = (e['sigma'] == -50) ? String.fromCharCode(955) : String.fromCharCode(e['sigma']);
+            const graph_edge = {
+                from: e["qi"],
+                to: e["qj"],
+                label: label,
+                color: {
+                    color: edgeColor, 
+                    highlight: "#00ff00", 
+                    hover: "#0000ff" 
+                } 
+            };
+            edgesArray.push(graph_edge);   
+        });
+        const startArrow = {from: -1, to: startState}
+        edgesArray.push(startArrow);
+        
+        return edgesArray;
+    }
+
+    useEffect(() => {
+        if (edges && states && ref.current) { 
+            ref.current.setData({nodes: [], edges: []});
             const nodesArray = []
             const edgesArray = []
-
-            states.forEach(s => { 
-                const graph_state = {
-                    id: s,
-                    label: s.toString()
-                    // title: "title",
-                    // shape: "image",
-                    // image: "./logo192.png"
-                }; 
-                nodesArray.push(graph_state);                
-            }); 
-
-            edges.forEach(e => {
-                const graph_edge = {
-                    from: e["qi"],
-                    to: e["qj"],
-                    label: e["sigma"],
-                    color: {
-                        color: "#ff0000", // Line color
-                        highlight: "#00ff00", // Line color when the edge is selected
-                        hover: "#0000ff" // Line color when the mouse hovers over the edge
-                    } // Add this block 
-                };
-                console.log(graph_edge);
-                edgesArray.push(graph_edge);   
-            });
+         
+            populateGraphStates(nodesArray);
+            populateGraphEdges(edgesArray);
             
             ref.current.setData({nodes: nodesArray, edges: edgesArray});
         }
@@ -58,41 +92,36 @@ function RegexParser() {
         console.log(graph);
     }, [graph]);
 
-    useEffect(() => {
-        console.log('Accept update: ', accept);
-        if (accept) {
-            setAcceptMessage(`Accepted on ${string}`);
-        } else {
-            setAcceptMessage(`Rejected on ${string}`);
-        }
-    }, [accept]);
-
     async function getNfa(expr, string) {
         try {
-            // https://localhost:3443/api/regex/aUbUcUd/ab 
             const res = await axios.get(`https://localhost:3443/api/regex/${expr}/${string}`);
-            console.log(res.data);
-            
-            setStates(res.data.states);
-            setEdges(res.data.edges);
-            setAccept(res.data.accept);
+            return res.data;
         } catch(error) {
+            return null
             console.error("unable to fetch nfa");
         }
     }
 
     async function drawNfa() {
-        if (expr != "" && string != "" ) {
-            await getNfa(expr, string);
+        if (expr != "") {
+            const data = await getNfa(expr, string);       
+            if (data != null) {
+                setStates(data.states);
+                setEdges(data.edges);
+                setStartState(data.startState);
+                setAcceptStates(data.acceptStates);
+            }
         } 
-        console.log("after");
     }
 
-    const runString = () => {
-        console.log("do nothing");
-        return (
-            accept ? <div>True</div> : <div> False </div>
-        );
+    async function runString() { 
+        if (string != "") {
+            const data = await getNfa(expr, string); 
+            if (data != null) {
+                setAccept(data.accept);
+            }
+        }
+        return (<div>{acceptMessage}</div>);
     }
 
     const handleInputChange = (event) => {
@@ -103,15 +132,35 @@ function RegexParser() {
         setString(event.target.value);
     }
 
-    const handleExprSubmit = () => {
-        // getNfa();
-        console.log("edges:", edges);
+    const showAcceptMessage = () => {
+        const acceptMessage = (accept == true) ? "accept" : "reject";
+        console.log("accept message:", accept);
+        return (
+            <div> {accept} </div>
+        );
+    }
+
+    var options = { 
+        height: '800px', 
+        edges: { smooth: true, shadow: false},
+        layout: {
+            randomSeed: 1,
+            improvedLayout: true,
+            hierarchical: {
+                enabled: false, //change to true to see the other graph
+                direction: 'UD',
+                sortMethod: 'directed'
+            }
+        }
     }
 
     return(
         <div className="Project">  
             <div className="project-description">
                 Regular Expression Engine    
+            </div>
+            <div className="description-text">
+                This is a simple Regular Expression engine that generates an NFA and runs a string through it.
             </div> 
             <div className="expreesion_text"> 
             </div>
@@ -123,7 +172,6 @@ function RegexParser() {
                     value={expr}
                     onChange={handleInputChange}
                 />
-                <p>You typed: {expr}</p>
             </div>
             <div>
                 <label htmlFor="text-input">String:</label>
@@ -133,9 +181,8 @@ function RegexParser() {
                     value={string}
                     onChange={handleStringChange}
                 />
-                <p>You typed: {string}</p>
             </div>
-            <div className="regex_buttons">
+            <div className="regex-buttons">
                 <button class="btn btn-primary" 
                         type="button" 
                         data-toggle="collapse" 
@@ -147,14 +194,13 @@ function RegexParser() {
                         onClick={() => { runString() }}
                 >Run String</button>
                 <div className="success-message">
-                    {acceptMessage} 
+                    accept message: { showAcceptMessage() } 
                 </div> 
             </div>
-            <div> 
+            <div className="regex-graph"> 
                 <Graph 
                     graph={ graph }
-                    options={ {height : "500px"} }
-                    // events={events}
+                    options={ options }
                     getNetwork={network => {
                         ref.current = network
                     }}
@@ -165,19 +211,3 @@ function RegexParser() {
 }
     
 export default RegexParser;
-    
-// const graph = {
-//     nodes: [ 
-//         { id: 1, label: "Node 1", title: "node 1 tootip text" },
-//         { id: 2, label: "Node 2", title: "node 2 tootip text" },
-//         { id: 3, label: "Node 3", title: "node 3 tootip text" },
-//         { id: 4, label: "Node 4", title: "node 4 tootip text" },
-//         { id: 5, label: "Node 5", title: "node 5 tootip text" }
-//     ],
-//     edges: [
-//         { from: 1, to: 2 },
-//         { from: 1, to: 3 },
-//         { from: 2, to: 4 },
-//         { from: 2, to: 5 }
-//     ]
-// };
