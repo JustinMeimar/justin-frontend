@@ -1,0 +1,41 @@
+.about_site_title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-stretch: condensed; 
+}
+
+.about_site_title {
+
+  margin: auto; /* centers the container */
+  max-width: 800px; /* same as the .project_container width */
+  padding-left: 10px; 
+  padding-top: 50px; 
+  font-size: 48px; /* size of the font */
+  font-weight: 360;
+  color: white;
+}
+
+.about_site_subtitle {
+  margin: auto; 
+  max-width: 800px;  
+  font-weight: 300;
+  padding-left: 10px; 
+  padding-top: 5px; 
+  padding-bottom: 10px; 
+  font-size: 22px; /* size of the font */
+  color: white; /* color of the font, adjust as needed */
+}
+
+.about_site_info {
+    width: 800px;
+    background-color: #3e3e3e;
+    color: white; 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    border-radius: 20px;
+    margin: auto;
+}

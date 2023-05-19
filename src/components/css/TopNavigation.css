@@ -1,0 +1,53 @@
+.top_navigation {
+    background-color: #90e1ff;
+}
+
+.sidebar_projects_title {
+    padding-left: 10px;
+}
+
+.sidebar_about_title {
+    padding-left: 10px;
+    padding-top: 25px;
+}
+
+.sidebar_projects_units {
+    padding-left: 30px; 
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.sidebar_projects_unit {
+    padding-left: 1px;
+    padding-top: 10px;
+}
+.sidebar_projects_unit:hover {
+    padding-left: 1px;
+    opacity: 0.95;
+    transform: scale(0.99);
+}
+
+.sidebar_about_units {
+    padding-left: 30px; 
+    font-size: 22px;
+    font-weight: 300;
+}
+.sidebar_about_unit_me {
+    padding-top: 10px;
+}
+
+.sidebar_about_unit_site {
+    padding-top: 10px;
+}
+
+.sidebar_about_unit_me:hover {
+    padding-left: 1px;
+    opacity: 0.95;
+    transform: scale(0.99);
+}
+
+.sidebar_about_unit_site:hover {
+    padding-left: 1px;
+    opacity: 0.95;
+    transform: scale(0.99);
+}

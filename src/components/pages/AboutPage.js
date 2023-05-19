@@ -3,8 +3,6 @@ import './css/AboutPage.css';
 
 function AboutPage() {
 
-    // const backgroundRGB = "#88D8FF";
-    // const backgroundRGB = "#A7D3FF ";
     const backgroundRGB = "#70C3FF ";
     const [showAbout, setShowAbout] = useState(true);
     const [aboutMeColor, setAboutMeColor] = useState(backgroundRGB);
@@ -24,6 +22,7 @@ function AboutPage() {
 
     return (
         <div className="aboutPage">
+            { AboutMeTitle() }
             <div className="about-me-title">
                 <br />       
                 <button class="btn btn-primary" style={{"margin-right":"10px", "color" : ""}} type="button" data-toggle="collapse" onClick={() => {clickAboutMe()}}>About Me</button>
@@ -31,6 +30,19 @@ function AboutPage() {
         </div>
             {showAbout ? about_me_info() : about_page_info()}
         </div>
+    );
+}
+
+const AboutMeTitle = () => {
+    return (
+        <div className="projects_page_title_container">
+        <div className="projects_page_title">
+            &#129313; About Me
+        </div>
+        <div className="projects_page_subtitle">
+            Some cool ideas that actually materialized
+        </div>
+        </div> 
     );
 }
 

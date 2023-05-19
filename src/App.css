@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.root_div {
+  background-color: #121212;
+  height: 100%;
+}
+
+.App {
+    min-height: 100%;
+}

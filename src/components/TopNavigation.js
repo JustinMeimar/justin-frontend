@@ -1,50 +1,87 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import ResumePDF from '../static/Resume.pdf';
 import githubLogo from '../static/github.png';
 import { Link }  from 'react-router-dom';
+import "./css/TopNavigation.css";
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { project_descriptions } from "./pages/ProjectsPage";
 
-function TopNavigation() {
-
-    return( 
-        <div className="top_navigation">  
-
-            <div class="pos-f-t">
-            <div class="collapse" id="navbarToggleExternalContent">
-                <div class="bg-dark p-4" >
-                    <div class="bg-dark p-2" onClick={() => window.location.href="https://github.com/JustinMeimar"}>
-                        <h4 class="text-white" >Github</h4>   
-                        <span class="text-muted">To see how this website was created.</span>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar navbar-dark bg-dark">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                
-            </nav>
-            </div> 
-            <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href={ResumePDF} target="_blank">Resume</a>
-                    </li>
-                    </ul>
-                </div>
-            </nav> 
+function OffCanvasExample({ name, scroll, backdrop, show, handleClose }) {
+  return (
+    <Offcanvas show={show} onHide={handleClose} scroll={scroll} backdrop={backdrop}>
+        <div className="sidebar_projects_title">
+        <Offcanvas.Header closeButton>
+        <Offcanvas.Title>{name}</Offcanvas.Title>
+        </Offcanvas.Header>
         </div>
+      <Offcanvas.Body>
+        <div className="sidebar_projects_title">
+            <Offcanvas.Title>Projects</Offcanvas.Title>
+        </div>
+        <div className="sidebar_projects_units">
+            {Object.values(project_descriptions).map(project => (
+            <div className="sidebar_projects_unit">
+                <Nav.Link key={project.title} href={project.url}>
+                    {project.title}
+                </Nav.Link>
+            </div>
+            ))} 
+        </div>
+        <div className="sidebar_about_title">
+            <Offcanvas.Title>About</Offcanvas.Title>
+        </div>
+        <div className="sidebar_about_units">
+            <div className="sidebar_about_unit_me">
+                <Nav.Link  href="/about/me">Me</Nav.Link>
+            </div>
+            <div className="sidebar_about_unit_site">
+                <Nav.Link  href="/about/site">This Site </Nav.Link>
+            </div>
+        </div>
+      </Offcanvas.Body>
+    </Offcanvas>
+  );
+}
 
+function CollapsibleExample() {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const toggleShow = () => setShow((s) => !s);
+
+    return (
+        <div>
+            <OffCanvasExample name='Menu' scroll={false} backdrop={true} show={show} handleClose={handleClose} />
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand href="#home" onClick={toggleShow}>Menu</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/projects">Projects</Nav.Link>
+                    <NavDropdown title="About" id="collasible-nav-dropdown">
+                        <NavDropdown.Item href="/about/site">This Site</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/about/me">Me</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link href="/blog">Blog</Nav.Link>
+                    <Nav.Link href={ResumePDF} target="_blank">Resume</Nav.Link>
+                </Nav>
+                <Nav>
+                    <Nav.Link href="#deets">Github</Nav.Link>
+                    <Nav.Link href="#deets">LinkedIn</Nav.Link>
+                </Nav>
+                </Navbar.Collapse>
+            </Container>
+            </Navbar>
+        </div>
     );
 }
 
-export default TopNavigation;
+export default CollapsibleExample;

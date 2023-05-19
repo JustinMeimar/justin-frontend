@@ -7,8 +7,8 @@ import '../../css/RegexParser.css'
 
 function RegexParser() {
 
-    const [expr, setExpr] = useState("");
-    const [string, setString] = useState("");
+    const [expr, setExpr] = useState("j&mU(re*)");
+    const [string, setString] = useState("rerere");
     const [accept, setAccept] = useState(false);
     const [acceptMessage, setAcceptMessage] = useState(true);
     const [graph, setGraph] = useState({nodes: [], edges: []});
@@ -19,6 +19,7 @@ function RegexParser() {
     const ref = useRef(null);    
 
     const populateGraphStates = (nodesArray) => {
+        console.log(states);
         states.forEach(s => { 
             const stateId = (s == startState) ? "s" : s;
             const stateColor = (acceptStates.includes(s)) ? "#19ff75" : (s == startState ? "#8aedff" : "#ffffff");
@@ -44,7 +45,7 @@ function RegexParser() {
                 border: "#fff",  
                 highlight: {          
                     background: "#fff",
-                    border: '#fff'
+                    border: "#fff"
                 }
             } 
         }
@@ -94,7 +95,9 @@ function RegexParser() {
 
     async function getNfa(expr, string) {
         try {
-            const res = await axios.get(`https://justin-terminal-server.com:3443/api/regex/${expr}/${string}`);
+            // const res = await axios.get(`https://justin-terminal-server.com:3443/api/regex/${expr}/${string}`);
+            const res = await axios.get(`http://localhost:8080/api/regex/${expr}/${string}`);
+            console.log(res.data);
             return res.data;
         } catch(error) {
             return null

@@ -1,18 +1,54 @@
 .project_title {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   margin-bottom: 10px;
+  font-weight: 300;
+  font-stretch: condensed; 
+}
+
+.projects_page_title {
+
+  margin: auto; /* centers the container */
+  max-width: 800px; /* same as the .project_container width */
+  padding-left: 10px; 
+  padding-top: 50px; 
+  font-size: 48px; /* size of the font */
+  font-weight: 360;
+  color: white;
+}
+
+.projects_page_subtitle {
+  margin: auto; 
+  max-width: 800px;  
+  font-weight: 300;
+  padding-left: 10px; 
+  padding-top: 5px; 
+  padding-bottom: 10px; 
+  font-size: 22px; /* size of the font */
+  color: white; /* color of the font, adjust as needed */
 }
 
 .project_container {
-  width: 50%; 
+  width: 800px; 
   margin: auto;
   transition: all 0.3s ease-in-out;
   margin-top: 40px;
+  color: white;
+  background-color: #3e3e3e;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px; 
+  transition: transform 0.3s ease;
+}
+.project_container:hover {
+  opacity: 0.95;
+  transform: scale(0.99);
 }
 
 .project_container:hover .project_title{
-  color: rgb(133, 174, 255);
+  color: rgb(133, 253, 255);
 }
 
 .project_title_lang_container {
@@ -20,7 +56,7 @@
 }
 
 #Rust {
-  color: rgb(216, 104, 0);
+  color: rgb(255, 143, 16);
 }
 
 .project_language {
@@ -28,15 +64,18 @@
   font-style: italic;
   margin-top: 7px;
   margin-left: 10px;
-  color: rgb(14, 116, 225);
+  color: rgb(75, 192, 255);
 }
 
 .project_date {
   font-size: 18px;
   margin-bottom: 5px;
+  opacity: 0.9;
 }
 
 .project_description {
   font-size: 16px;
   text-align: left;
+  opacity: 0.8;
+  padding-top: 10px;
 }
