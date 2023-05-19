@@ -1,0 +1,27 @@
+.project_base_title {
+
+  margin: auto; /* centers the container */
+  max-width: 1200px; /* same as the .project_container width */
+  padding-left: 10px; 
+  padding-top: 50px; 
+  font-size: 48px; /* size of the font */
+  font-weight: 360;
+  color: white;
+}
+
+.project_base_subtitle {
+  margin: auto; 
+  max-width: 1200px;  
+  font-weight: 300;
+  padding-left: 10px; 
+  padding-top: 5px; 
+  padding-bottom: 10px; 
+  font-size: 22px; /* size of the font */
+  color: white; /* color of the font, adjust as needed */
+}
+
+.project_base_content {
+  margin: auto;
+  font-size: 20px;
+  font-weight: 300;
+}

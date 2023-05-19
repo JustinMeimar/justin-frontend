@@ -4,7 +4,7 @@ import './css/ProjectsPage.css'
 
 export const project_descriptions = {
     "compiler": {
-    title: "Compiler",
+    title: "NAGC Compiler",
     description: "A fully functional compiler. Gazprea uses ANTLR frontend to generatae a parse tree. After transforming \
         the parse tree to an AST we implement multiple \ AST walks including symbol definition,\
         resolution, static type checking and finally code generation. We target LLVM IR to be portable, then\

@@ -2,12 +2,12 @@ import { React } from 'react';
 import { useNavigate } from "react-router-dom";
 import './css/BlogPage.css'
 
-export const project_descriptions = {
+export const blog_descriptions = {
     "compiler": {
-    title: "Test Blog 1",
-    description: "A test blog for my new blog section",
-    date: "2023-05-18",
-    url: "/blog/1"
+      title: "Test Blog 1",
+      description: "A test blog for my new blog section",
+      date: "2023-05-18",
+      url: "/blog/1"
     }, 
 };
 
@@ -15,7 +15,7 @@ function BlogPage() {
 
   const navigate = useNavigate(); 
   const linkProject = (key) => { 
-    const url = project_descriptions[key]["url"]; 
+    const url = blog_descriptions[key]["url"]; 
     navigate(url);
   }
 
@@ -33,8 +33,8 @@ function BlogPage() {
   }
   
   function BlogList() {
-      const projects = Object.keys(project_descriptions).map((key) => {
-        const { title, description, date, lang } = project_descriptions[key];
+      const projects = Object.keys(blog_descriptions).map((key) => {
+        const { title, description, date, lang } = blog_descriptions[key];
         return (
           <div key={title} className="project_container" onClick={() => linkProject(key)}>
             <div className="project_title_lang_container">

@@ -1,12 +1,4 @@
-.about_site_title {
-  font-size: 32px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  font-weight: 300;
-  font-stretch: condensed; 
-}
-
-.about_site_title {
+.about_title {
 
   margin: auto; /* centers the container */
   max-width: 800px; /* same as the .project_container width */
@@ -17,7 +9,7 @@
   color: white;
 }
 
-.about_site_subtitle {
+.about_subtitle {
   margin: auto; 
   max-width: 800px;  
   font-weight: 300;
@@ -28,14 +20,19 @@
   color: white; /* color of the font, adjust as needed */
 }
 
-.about_site_info {
-    width: 800px;
-    background-color: #3e3e3e;
-    color: white; 
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-top: 5px;
-    border-radius: 20px;
-    margin: auto;
+.about_content_container {
+  width: 800px; 
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  margin-top: 40px;
+  color: white;
+  background-color: #3e3e3e;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px; 
+  transition: transform 0.3s ease;
+  font-size: 20px;
+  font-weight: 300;
 }

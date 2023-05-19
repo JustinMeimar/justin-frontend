@@ -1,35 +1,34 @@
-import { React } from 'react';
-import { useNavigate } from "react-router-dom";
-import './css/AboutMePage.css'
+import AboutBase from "./AboutBase.js";
+import AboutMeInfo from "./AboutMeContent.js";
 
 function AboutMePage() {
-
-  const AboutMeTitle = () => {
+  
+  const aboutMeContext = () => {
     return (
-      <div className="projects_page_title_container">
-        <div className="projects_page_title">
-           &#129313; About Me
-        </div>
-        <div className="projects_page_subtitle">
-          Some stuff about me
-        </div>
-      </div> 
+      <AboutMeInfo/>
+      // <div> Testing Content </div>
+    );
+  }
+
+  const aboutMeTitle = () => {
+    return (
+      <div> &#129313; About Me </div>
     );
   }
   
-  function AboutMeContent() {
+  const aboutMeSubtitle = () => {
     return (
-        <div></div>
+      <div> Some stuff about me </div>
     );
   }
 
   return (
-    <div className="about_me_container">
-      <AboutMeTitle />
-      <AboutMeContent />
-    </div>
+    <AboutBase 
+      title={aboutMeTitle()} 
+      subtitle={aboutMeSubtitle()}
+      content={aboutMeContext()}  
+    />
   );
 }
 
 export default AboutMePage;
-

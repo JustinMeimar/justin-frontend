@@ -1,9 +1,9 @@
 import { React, useState, useEffect, useRef } from 'react';
 import Graph from "react-graph-vis";
-import CodeEditor from '../CodeEditor'; 
-import HttpTerminal from '../HttpTerminal'
+// import CodeEditor from '../CodeEditor'; 
+// import HttpTerminal from '../projects/HttpTerminal'
 import axios from 'axios';
-import '../../css/RegexParser.css'
+import '../css/RegexParser.css'
 
 function RegexParser() {
 
@@ -160,7 +160,7 @@ function RegexParser() {
     return(
         <div className="Project">  
             <div className="project-description">
-                Regular Expression Engine    
+                &#9881; Regex Engine 
             </div>
             <div className="description-text">
                 This is a simple Regular Expression engine that generates an NFA and runs a string through it.

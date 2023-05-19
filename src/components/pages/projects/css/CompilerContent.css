@@ -1,16 +1,28 @@
 .project_compiler_info_container {    
-    width: 70%;
+    width: 1200px;
     margin: auto;
     margin-top: 30px;
 }
 
 .project_compiler_title {
     margin-bottom: 10px;
-    font-size: 28px;
+    font-size: 36px; /* size of the font */
+    font-weight: 360;
+    color: white;
+    padding-top: 20px;
+    padding-left: 30px; 
+    padding-bottom: 20px;
 }
 
 .project_compiler_info_body {
+    width: 1200px;
     margin-bottom: 10px;
+    padding-top: 20px;
+    padding-left: 30px; 
+    padding-right: 20px; 
+    color: white; 
+    border-radius: 20px;
+    background-color: #3e3e3e;
 }
 
 .editor-terminal-container {
@@ -20,6 +32,25 @@
 
 .editor-wrapper {
     margin-right: 20px;
+    border-radius: 20px;
+    padding-left: 10px;
+    /* background-color: #3e3e3e; */
+}
+
+.terminal_title {
+    color: white;
+    margin-bottom: 10px;
+    font-size: 28px; /* size of the font */
+    font-weight: 360;
+    margin-top:20px;
+}
+
+.editor_title {
+    margin-top:20px;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 28px; /* size of the font */
+    font-weight: 360;
 }
 
 .code_editor_component {
@@ -28,7 +59,7 @@
 }
 
 .terminal_div {
-    width: 700px;
+    width: 580px;
 }
 
 .gazprea_about {

@@ -1,0 +1,11 @@
+.code_editor_component {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 10px;
+
+}
+
+.code_editor {
+  flex-grow: 1;
+}

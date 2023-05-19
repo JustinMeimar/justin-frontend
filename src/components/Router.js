@@ -1,13 +1,13 @@
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import HomePage from "./pages/HomePage.js";
-import ProjectsPage from "./pages/ProjectsPage.js";
-import AboutPage from './pages/AboutPage.js';
-import Compiler from './pages/projects/compiler/Compiler.js';
+import ProjectsPage from "./pages/projects/ProjectsPage.js";
 import RegexParser from './pages/projects/regex-parser/RegexParser.js';
 import BlogPage from './pages/blog/BlogPage.js';
 
 import AboutMePage from "./pages/about/AboutMePage.js";
 import AboutSitePage from "./pages/about/AboutSitePage.js";
+
+import CompilerProject from "./pages/projects/nagc-compiler/Compiler.js";
 
 function MainRouter() {
   return (
@@ -22,7 +22,7 @@ function MainRouter() {
             <Route path="/about/me" element={<AboutMePage></AboutMePage>} />
             <Route path="/about/site" element={<AboutSitePage></AboutSitePage>} />
             
-            <Route path="/projects/compiler" element={<Compiler/>} />
+            <Route path="/projects/compiler" element={<CompilerProject/>} />
             <Route path="/projects/b-tree" element={<RegexParser/>} />
             <Route path="/projects/nfa-regex" element={<RegexParser/>} />
             <Route path="/projects/vn-8bit" element={<RegexParser/>} />

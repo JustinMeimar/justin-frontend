@@ -9,7 +9,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { project_descriptions } from "./pages/ProjectsPage";
+import { project_descriptions } from "./pages/projects/ProjectsPage";
 
 function OffCanvasExample({ name, scroll, backdrop, show, handleClose }) {
   return (
