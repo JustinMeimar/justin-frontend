@@ -1,9 +1,9 @@
 import { React, useState, useEffect, useRef } from 'react';
 import Graph from "react-graph-vis";
 import axios from 'axios';
-import '../css/RegexParser.css'
+import '../css/RegexContent.css'
 
-function RegexParser() {
+function RegexContent() {
 
     const [expr, setExpr] = useState("j&mU(re*)");
     const [string, setString] = useState("rerere");
@@ -157,40 +157,42 @@ function RegexParser() {
 
     return(
         <div className="Project">  
-            <div>
-                <label htmlFor="text-input">Regular Expression:</label> {/* aUbUcU(d&e)* */}
-                <input
-                    type="text"
-                    id="text-input"
-                    value={expr}
-                    onChange={handleInputChange}
-                />
+            <div className="regex_control">
+                <div className="regex_input">
+                    <label htmlFor="text-input">Regular Expression:</label> {/* aUbUcU(d&e)* */}
+                    <input
+                        type="text"
+                        id="text-input"
+                        value={expr}
+                        onChange={handleInputChange}
+                    />
+                </div>
+                <div className="regex_string">
+                    <label htmlFor="text-input">String:</label>
+                    <input
+                        type="text"
+                        id="text-input"
+                        value={string}
+                        onChange={handleStringChange}
+                    />
+                </div>
+                <div className="regex_buttons">
+                    <button class="btn btn-primary" 
+                            type="button" 
+                            data-toggle="collapse" 
+                            onClick={() => { drawNfa() }}
+                    >Generate NFA</button> 
+                    <button class="btn btn-success" 
+                            type="button" 
+                            data-toggle="collapse" 
+                            onClick={() => { runString() }}
+                    >Run String</button>
+                    <div className="success-message">
+                        accept message: { showAcceptMessage() } 
+                    </div> 
+                </div>
             </div>
-            <div>
-                <label htmlFor="text-input">String:</label>
-                <input
-                    type="text"
-                    id="text-input"
-                    value={string}
-                    onChange={handleStringChange}
-                />
-            </div>
-            <div className="regex-buttons">
-                <button class="btn btn-primary" 
-                        type="button" 
-                        data-toggle="collapse" 
-                        onClick={() => { drawNfa() }}
-                >Generate NFA</button> 
-                <button class="btn btn-success" 
-                        type="button" 
-                        data-toggle="collapse" 
-                        onClick={() => { runString() }}
-                >Run String</button>
-                <div className="success-message">
-                    accept message: { showAcceptMessage() } 
-                </div> 
-            </div>
-            <div className="regex-graph"> 
+            <div className="regex_graph"> 
                 <Graph 
                     graph={ graph }
                     options={ options }
@@ -203,4 +205,4 @@ function RegexParser() {
     );
 }
     
-export default RegexParser;
+export default RegexContent;

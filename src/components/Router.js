@@ -7,7 +7,8 @@ import BlogPage from './pages/blog/BlogPage.js';
 import AboutMePage from "./pages/about/AboutMePage.js";
 import AboutSitePage from "./pages/about/AboutSitePage.js";
 
-import CompilerProject from "./pages/projects/nagc-compiler/Compiler.js";
+import CompilerProject from "./pages/projects/compiler/Compiler.js";
+import RegexProject from "./pages/projects/regex/Regex.js";
 
 function MainRouter() {
   return (
@@ -24,7 +25,7 @@ function MainRouter() {
             
             <Route path="/projects/compiler" element={<CompilerProject/>} />
             <Route path="/projects/b-tree" element={<RegexParser/>} />
-            <Route path="/projects/nfa-regex" element={<RegexParser/>} />
+            <Route path="/projects/nfa-regex" element={<RegexProject/>} />
             <Route path="/projects/vn-8bit" element={<RegexParser/>} />
         
         </Routes>

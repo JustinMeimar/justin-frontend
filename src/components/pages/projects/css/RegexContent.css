@@ -1,0 +1,31 @@
+.regex_buttons {
+    /* background-color: white; */
+    color: white;
+}
+
+.regex_control {
+    width: 1200px;
+    background-color: #3e3e3e;
+    color: white;
+    padding-top: 20px;
+    padding-left: 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.regex_graph {
+    background-color: rgb(214, 246, 255);
+    border-radius: 20px;
+    margin-top: 10px;
+    border: 4px solid rgb(172, 248, 255);
+    width: 1200px;
+}
+
+.regex_input {
+    padding-top: 5px;
+}
+
+.regex_string {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}

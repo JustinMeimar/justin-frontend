@@ -118,6 +118,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                         fontSize: 16,
                         backgroundColor: '#f5f5f5',
                         border: '2px solid #ddd',
+                        // height: '200%;',
                     }}
                 />
             </div> 

@@ -2,13 +2,11 @@ import {React, useRef} from 'react';
 import Terminal from 'react-console-emulator';
 import axios from 'axios';
 import '../css/HttpTerminal.css';
-// import '../css/HttpTerminal.css';
 
 // wait for the server to run the program and return the stdout
 async function awaitProgramOutput(program, input) {
     
     const fetchData = async () => {
-
         console.log("program:", program);
         console.log("input:", input);
 
@@ -46,13 +44,12 @@ function HttpTerminal({program, input}) {
         const output = await awaitProgramOutput(program, input);
         
         console.log("recieved output");
-        // console.log(output);
         term.pushToStdout(output);
     }
 
     return( 
         <div className="terminal_div">        
-            <button type="button" style={{"margin-bottom": "10px"}} class="btn btn-success" onClick={() => {runCommand()}}>Run</button>
+            <button type="button" style={{"margin-bottom": "15px"}} class="btn btn-success" onClick={() => {runCommand()}}>Run</button>
             <Terminal
                 ref={terminal}
                 commands={commands}
