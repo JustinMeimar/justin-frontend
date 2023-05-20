@@ -34,7 +34,15 @@
     margin-right: 20px;
     border-radius: 20px;
     padding-left: 10px;
-    /* background-color: #3e3e3e; */
+    background-color: #3e3e3e;
+}
+
+.terminal-wrapper {
+    background-color: #3e3e3e;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .terminal_title {
@@ -54,7 +62,6 @@
 }
 
 .code_editor_component {
-    /* height: 100px; */
     width: 600px;
 }
 
@@ -62,29 +69,15 @@
     width: 580px;
 }
 
-.gazprea_about {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+.nav-link {
+  color: rgb(0, 255, 128)
 }
 
-.gazprea_background {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+.nav-link.active {
+  color: lightblue; 
+  background-color: #121212;
 }
-.gazprea_features {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.gazprea_technical {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
-}
-.gazprea_instructions{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+
+.tab-pane.active {
+  color: #ffffff
 }

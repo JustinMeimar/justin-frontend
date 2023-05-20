@@ -1,7 +1,33 @@
 import { React, useState } from 'react';
 import CodeEditor from './CodeEditor'; 
 import HttpTerminal from './HttpTerminal';
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
 import "../css/CompilerContent.css";
+
+function CompilerTabs() {
+  const [key, setKey] = useState('about');
+
+  return (
+    <Tabs
+      id="controlled-tab-example"
+      activeKey={key}
+      onSelect={(k) => setKey(k)}
+      className="mb-3"
+    >
+      <Tab eventKey="about" title="About">
+        Gazprea is a statically types programming language. 
+      </Tab>
+      <Tab eventKey="features" title="Features">
+        LLVM. 
+      </Tab>
+      <Tab eventKey="background" title="Background">
+        Made in a group of 4!
+      </Tab>
+    </Tabs>
+  );
+}
+
 
 function CompilerContent() {
 
@@ -26,41 +52,11 @@ function CompilerContent() {
         console.log(section);
     }
 
-    const showGazpreaInfo = (section) => {
-        if (section == "about") {
-            return (
-                <div className="gazprea_about_wrapper"> 
-                    {/* <div className="gazprea_about_title">
-                        About 
-                    </div>
-                         */}
-                    <div className="gazprea_about">
-                        Gazprea is a statically typed language used for matrix and vector programming. 
-                        Below is a remote window into our implementation -- the NAGC (Not Another Gazprea Compiler) compiler! Just select from one of the predefined inputs or type in 
-                        the editor to write your own program. Press Run to execute!               
-                        
-                        <br></br> 
-                        <br></br>  
-                            Authors: James Le, Tianming Han, Ian Cho and Justin Meimar
-                        <br></br> 
-                        <br></br> 
-                    </div>
-                </div> 
-            );
-        } 
-    }
-
     return(
         <div className="Project"> 
             <div className="project_compiler_info_container"> 
                 <div className="project_compiler_info_body">
-                    {/* <p>
-                        <button class="btn btn-primary" style={{"margin-right":"10px", "color" : ""}} type="button" data-toggle="collapse" onClick={() => {setShowGazpreaInfo("about")}}>About</button>
-                        <button class="btn btn-primary" style={{"margin-right":"10px"}} type="button" data-toggle="collapse" onClick={() => {setShowGazpreaInfo("background")}}>Background</button>
-                        <button class="btn btn-primary" style={{"margin-right":"10px"}} type="button" data-toggle="collapse" onClick={() => {setShowGazpreaInfo("features")}}>Language Features</button>
-                        <button class="btn btn-primary" type="button" data-toggle="collapse" onClick={() => {setShowGazpreaInfo("technical")}}>Technical Details</button>
-                    </p> */}
-                    {showGazpreaInfo(section)}  
+                    <CompilerTabs/>
                 </div>
                 <div className="editor-terminal-container">
                     <div className="editor-wrapper">
@@ -79,6 +75,29 @@ function CompilerContent() {
 }
     
 export default CompilerContent;
+    // const showGazpreaInfo = (section) => {
+    //     if (section == "about") {
+    //         return (
+    //             <div className="gazprea_about_wrapper"> 
+    //                 {/* <div className="gazprea_about_title">
+    //                     About 
+    //                 </div>
+    //                      */}
+    //                 <div className="gazprea_about">
+    //                     Gazprea is a statically typed language used for matrix and vector programming. 
+    //                     Below is a remote window into our implementation -- the NAGC (Not Another Gazprea Compiler) compiler! Just select from one of the predefined inputs or type in 
+    //                     the editor to write your own program. Press Run to execute!               
+                        
+    //                     <br></br> 
+    //                     <br></br>  
+    //                         Authors: James Le, Tianming Han, Ian Cho and Justin Meimar
+    //                     <br></br> 
+    //                     <br></br> 
+    //                 </div>
+    //             </div> 
+    //         );
+    //     } 
+    // }
 
 // else if (section == "background") {
         //     return (

@@ -1,7 +1,6 @@
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import HomePage from "./pages/HomePage.js";
 import ProjectsPage from "./pages/projects/ProjectsPage.js";
-import RegexParser from './pages/projects/regex-parser/RegexParser.js';
 import BlogPage from './pages/blog/BlogPage.js';
 
 import AboutMePage from "./pages/about/AboutMePage.js";
@@ -24,9 +23,9 @@ function MainRouter() {
             <Route path="/about/site" element={<AboutSitePage></AboutSitePage>} />
             
             <Route path="/projects/compiler" element={<CompilerProject/>} />
-            <Route path="/projects/b-tree" element={<RegexParser/>} />
+            <Route path="/projects/b-tree" element={<RegexProject/>} />
             <Route path="/projects/nfa-regex" element={<RegexProject/>} />
-            <Route path="/projects/vn-8bit" element={<RegexParser/>} />
+            <Route path="/projects/vn-8bit" element={<RegexProject/>} />
         
         </Routes>
     </BrowserRouter>

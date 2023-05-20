@@ -8,15 +8,11 @@ function CompilerProject() {
   }
 
   const compilerProjectTitle = () => {
-    return (
-      <div> &#127795; NAGC Compiler </div>
-    );
+    return (<div> &#127795; NAGC Compiler </div>);
   }
   
   const compilerProjectSubtitle = () => {
-    return (
-      <div> A virtual window into the NAGC Compiler! </div>
-    );
+    return (<div> A virtual window into the NAGC Compiler! </div>);
   }
 
   return (

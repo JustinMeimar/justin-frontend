@@ -1,15 +1,17 @@
 import { React, useState } from 'react';
 import ResumePDF from '../static/Resume.pdf';
-import githubLogo from '../static/github.png';
-import { Link }  from 'react-router-dom';
-import "./css/TopNavigation.css";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import "./css/TopNavigation.css";
 import { project_descriptions } from "./pages/projects/ProjectsPage";
+
+
+import menuImage from "../static/menu.png";
+import gitHubImage from "../static/github.png";
+import linkedInImage from "../static/linkedin.png";
 
 function OffCanvasExample({ name, scroll, backdrop, show, handleClose }) {
   return (
@@ -59,7 +61,9 @@ function CollapsibleExample() {
             <OffCanvasExample name='Menu' scroll={false} backdrop={true} show={show} handleClose={handleClose} />
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand href="#home" onClick={toggleShow}>Menu</Navbar.Brand>
+                <Navbar.Brand href="#home" onClick={toggleShow}>
+                    <img src={menuImage} alt="Menu" style={{width: "30px", height: "30px"}}/>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -74,8 +78,8 @@ function CollapsibleExample() {
                     <Nav.Link href={ResumePDF} target="_blank">Resume</Nav.Link>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#deets">Github</Nav.Link>
-                    <Nav.Link href="#deets">LinkedIn</Nav.Link>
+                    <Nav.Link target="_blank" href="https://github.com/JustinMeimar">Github <img src={gitHubImage} alt="Github" style={{width: "20px", height: "20px"}}/></Nav.Link>
+                    <Nav.Link target="_blank" href="https://www.linkedin.com/in/justin-meimar-908326239/">LinkedIn <img src={linkedInImage} alt="LinkedIn" style={{width: "20px", height: "20px"}}/></Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
