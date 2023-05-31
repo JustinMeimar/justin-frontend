@@ -1,7 +1,6 @@
 import { React, useState, useEffect, useRef } from 'react';
 import Graph from "react-graph-vis";
 import axios from 'axios';
-import '../css/RegexContent.css'
 
 function RegexContent() {
 
@@ -122,6 +121,11 @@ function RegexContent() {
                 setAccept(data.accept);
             }
         }
+        if (accept == true) {
+            alert("String Accepted!");
+        } else {
+            alert("String Rejected!");
+        }
         return (<div>{acceptMessage}</div>);
     }
 
@@ -142,7 +146,7 @@ function RegexContent() {
     }
 
     var options = { 
-        height: '800px', 
+        height: '500px', 
         edges: { smooth: true, shadow: false},
         layout: {
             randomSeed: 1,
@@ -156,17 +160,33 @@ function RegexContent() {
     }
 
     return(
-        <div className="Project">  
-            <div className="regex_control">
-                <div className="regex_input">
-                    <label htmlFor="text-input">Regular Expression:</label> {/* aUbUcU(d&e)* */}
+        <div className="project"> 
+             <div className="regex_control">
+                <div className="d-flex align-items-center">
+                    <label htmlFor="text-input" className="mr-2">Regular Expression: </label> 
                     <input
                         type="text"
                         id="text-input"
+                        className="mr-2"
                         value={expr}
                         onChange={handleInputChange}
                     />
+                    <div className="dropdown">
+                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Expression
+                        </button>
+                        <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button className="dropdown-item" onClick={() => {setExpr("abc"); console.log("click")}} type="button">abc</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("aUbUc")}}type="button">aUbUc</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("(ab)*")}}type="button">(ab)*</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("(aUb)*")}}type="button">(aUb)*</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("(jUkUl)*")}}type="button">(jUkUl)*</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("(jUk&(bUa)*)*")}}type="button">(jUk&(bUa)*)*</button>
+                            <button className="dropdown-item" onClick={() => {setExpr("(a&b&c&d&e)*U(justin)*")}}type="button">(a&b&c&d&e)*U(justin)*</button>
+                        </div>
+                    </div>
                 </div>
+                
                 <div className="regex_string">
                     <label htmlFor="text-input">String:</label>
                     <input
@@ -176,6 +196,7 @@ function RegexContent() {
                         onChange={handleStringChange}
                     />
                 </div>
+                 
                 <div className="regex_buttons">
                     <button class="btn btn-primary" 
                             type="button" 
@@ -187,11 +208,8 @@ function RegexContent() {
                             data-toggle="collapse" 
                             onClick={() => { runString() }}
                     >Run String</button>
-                    <div className="success-message">
-                        accept message: { showAcceptMessage() } 
-                    </div> 
+                </div> 
                 </div>
-            </div>
             <div className="regex_graph"> 
                 <Graph 
                     graph={ graph }

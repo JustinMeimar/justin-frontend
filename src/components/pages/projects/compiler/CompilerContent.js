@@ -55,18 +55,22 @@ function CompilerContent() {
     return(
         <div className="Project"> 
             <div className="project_compiler_info_container"> 
-                <div className="project_compiler_info_body">
-                    <CompilerTabs/>
-                </div>
+                {/* <div className="project_compiler_info_body"> */}
+                    {/* <CompilerTabs/> */}
+                {/* </div> */}
                 <div className="editor-terminal-container">
+                  <div> 
+                    <div className="editor_title">Editor</div> 
                     <div className="editor-wrapper">
-                        <div className="editor_title">Editor</div>
                         {editor}
-                    </div>    
+                    </div>
+                  </div>
+                  <div> 
+                    <div className="terminal_title"> Terminal</div>
                     <div className="terminal-wrapper">
-                        <div className="terminal_title"> Terminal</div>
                         {terminal}
-                    </div> 
+                    </div>
+                  </div> 
                 </div> 
             
             </div>

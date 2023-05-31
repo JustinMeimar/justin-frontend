@@ -1,5 +1,6 @@
 import ProjectBase from "../ProjectBase.js";
 import RegexContent from "./RegexContent.js";
+import "../css/RegexContent.css";
 
 function RegexProject() {
   

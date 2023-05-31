@@ -23,7 +23,7 @@ export const project_descriptions = {
     url: "/projects/b-tree"
     },
     "nfa-regex": {
-    title: "NFA Regex Parser",
+    title: "Regex Engine",
     description: "An implementation of a recursive-descent parser for a minimal regular expression language. \
       The parsed regular expression is then used to generate a Non-deterministic Finite Automata (NFA), which can\
       be executed to determine if a string matches the regular expression",
@@ -57,7 +57,7 @@ function ProjectsPage() {
            &#128736; Projects
         </div>
         <div className="projects_page_subtitle">
-          Some cool ideas that actually materialized
+          Some projects with web GUIs 
         </div>
       </div> 
     );
@@ -67,16 +67,22 @@ function ProjectsPage() {
         const { title, description, date, lang } = project_descriptions[key];
         return (
           <div key={title} className="project_container" onClick={() => linkProject(key)}>
-                  <div className="project_title_lang_container">
-                    <div className="project_title">
-                      {title}
-                    </div> 
-                    <div className="project_language" id={lang}>
-                      {lang}
-                    </div>
-                  </div>  
-                  <div className="project_date">{date}</div>
-                  <div className="project_description">{description}</div>      
+              <div className="project_title_lang_container">
+                <div className="project_title">
+                  {title}
+                </div> 
+                <div className="project_language" id={lang}>
+                  {lang}
+                </div>
+              </div>  
+              
+              <div className="project_date">
+                {date}
+              </div>
+              
+              <div className="project_description">
+                {description}
+              </div>      
           </div>
       );
     });

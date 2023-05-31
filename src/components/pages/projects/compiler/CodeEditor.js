@@ -47,7 +47,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
 
     const input_dropdown = () => {
 
-        const compiler_input = (
+        const compiler_inputs = (
             <div class="btn-group" style={{"margin-bottom": "10px"}}>
                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Program
@@ -68,21 +68,8 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                 </div>
             </div>
         );
-        const nfa_regex_input = (
-            <div className="input selection">
-                <select>
-                    <option value="nfa-regex">a's or b's</option>
-                    <option value="b-tree">input 2</option>
-                    <option value="other">Other</option>
-                </select> 
-            </div>
-        );
-        if (default_program == "gazprea") {
-            return ( compiler_input );
-        } else if (default_program == "nfa-regex") {
-            return ( nfa_regex_input );
-        } 
-         
+            
+        return (compiler_inputs); 
     }
     
     async function awaitRequest() {
@@ -115,14 +102,11 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     padding={10}
                     style={{
                         fontFamily: '"Fira", "Fira Mono", monospace',
-                        fontSize: 16,
-                        backgroundColor: '#f5f5f5',
-                        border: '2px solid #ddd',
-                        // height: '200%;',
+                        fontSize: 15,
+                        backgroundColor: '#303030',
                     }}
                 />
             </div> 
-            {/* <button onClick={() => {makeRequest()}}>test domain</button> */}
         </div> 
     );
 }

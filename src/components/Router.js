@@ -8,6 +8,7 @@ import AboutSitePage from "./pages/about/AboutSitePage.js";
 
 import CompilerProject from "./pages/projects/compiler/Compiler.js";
 import RegexProject from "./pages/projects/regex/Regex.js";
+import BTreeProject from "./pages/projects/btree/BTree.js";
 
 function MainRouter() {
   return (
@@ -23,7 +24,7 @@ function MainRouter() {
             <Route path="/about/site" element={<AboutSitePage></AboutSitePage>} />
             
             <Route path="/projects/compiler" element={<CompilerProject/>} />
-            <Route path="/projects/b-tree" element={<RegexProject/>} />
+            <Route path="/projects/b-tree" element={<BTreeProject/>} />
             <Route path="/projects/nfa-regex" element={<RegexProject/>} />
             <Route path="/projects/vn-8bit" element={<RegexProject/>} />
         
