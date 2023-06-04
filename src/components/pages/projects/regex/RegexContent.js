@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function RegexContent() {
 
-    const [expr, setExpr] = useState("j&mU(re*)");
-    const [string, setString] = useState("rerere");
+    const [expr, setExpr] = useState("abc");
+    const [string, setString] = useState("abc");
     const [accept, setAccept] = useState(false);
     const [acceptMessage, setAcceptMessage] = useState(true);
     const [graph, setGraph] = useState({nodes: [], edges: []});
@@ -106,6 +106,7 @@ function RegexContent() {
         if (expr != "") {
             const data = await getNfa(expr, string);       
             if (data != null) {
+                console.log("data:", data);
                 setStates(data.states);
                 setEdges(data.edges);
                 setStartState(data.startState);
@@ -121,7 +122,8 @@ function RegexContent() {
                 setAccept(data.accept);
             }
         }
-        if (accept == true) {
+        console.log("accept:", accept);
+        if (accept) {
             alert("String Accepted!");
         } else {
             alert("String Rejected!");
@@ -163,11 +165,13 @@ function RegexContent() {
         <div className="project"> 
              <div className="regex_control">
                 <div className="d-flex align-items-center">
-                    <label htmlFor="text-input" className="mr-2">Regular Expression: </label> 
+                    <label htmlFor="text-input" className="custom-label">Regular Expr: </label> 
+
                     <input
                         type="text"
                         id="text-input"
                         className="mr-2"
+                        className="custom-input"
                         value={expr}
                         onChange={handleInputChange}
                     />
@@ -186,16 +190,17 @@ function RegexContent() {
                         </div>
                     </div>
                 </div>
-                
+
                 <div className="regex_string">
-                    <label htmlFor="text-input">String:</label>
-                    <input
-                        type="text"
-                        id="text-input"
-                        value={string}
-                        onChange={handleStringChange}
-                    />
-                </div>
+                  <label htmlFor="text-input" className="custom-label">Input String:</label>
+                  <input
+                    type="text"
+                    id="text-input"
+                    className="custom-input"
+                    value={string}
+                    onChange={handleStringChange}
+                  />
+                </div> 
                  
                 <div className="regex_buttons">
                     <button class="btn btn-primary" 

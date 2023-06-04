@@ -1,8 +1,30 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import "./css/ProjectBase.css";
+import InfoModal from "../../InfoModal.js";
+import InfoImage from "../../../static/info.png";
 
-function ProjectBase({title, subtitle, content}) {
+function ProjectBase({title, subtitle, content, info_markdown}) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const InfoButton = () => {
+    return (
+        <div onClick={handleOpenModal} className="infoButton">
+          <div className="project_base_info_image">
+            <img src={InfoImage} alt="Menu" style={{width: "35px", height: "35px", color: "white"}}/>
+          </div> 
+        </div>
+    );
+  }
 
   const ProjectTitle = () => {
     return (
@@ -13,6 +35,8 @@ function ProjectBase({title, subtitle, content}) {
         <div className="project_base_subtitle">
             {subtitle}
         </div>
+        <InfoButton/>
+        <InfoModal isOpen={isModalOpen} onRequestClose={handleCloseModal} content={info_markdown} />
       </div> 
     );
   }

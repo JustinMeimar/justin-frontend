@@ -26,3 +26,20 @@
   font-size: 20px;
   font-weight: 300;
 }
+
+.infoButton {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: white;
+}
+
+.project_base_title_container {
+  position: relative;
+}
+
+/* .project_base_info_image {
+  background-color: white;
+} */

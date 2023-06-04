@@ -17,6 +17,8 @@
     "react-console-emulator": "^5.0.2",
     "react-dom": "^18.2.0",
     "react-graph-vis": "^1.0.7",
+    "react-markdown": "^8.0.7",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "react-simple-code-editor": "^0.13.1",

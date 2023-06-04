@@ -42,3 +42,13 @@
 .project_base_content {
     width: min-content;
 }
+
+.custom-input {
+  border-radius: 5px;   /* Adjust as necessary for the roundness */
+  width: 30%;           /* Adjust as necessary for the width */
+  padding: 5px 10px;    /* Adjust as necessary for the padding */
+}
+
+.custom-label {
+  margin-right: 20px;   /* Adjust as necessary for the space between the label and the input */
+}
