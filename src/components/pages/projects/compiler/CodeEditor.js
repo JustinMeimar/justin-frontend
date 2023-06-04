@@ -24,9 +24,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
      
         console.log("get program: ", program);
         const fetchData = async () => {
-            // const get = axios.get(`https://justin-terminal-server.com:3443/get-file?program=${program}`)
-            const get = axios.get(`http://localhost:8080/get-file?program=${program}`)
-            // const get = axios.get(`http://localhost:8080/`)
+            const get = axios.get(`https://justinmeimar.com/api/compiler/get-file?program=${program}`)
                 .then(response => {
                     console.log(response.data);
                     return response.data; 
@@ -83,7 +81,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
     async function awaitRequest() {
 
         const fetchData = async () => {
-            const get = axios.get(`http://justin-terminal-server.com:8080/get-file?program=${"input_compiler_vector.txt"}`)
+            const get = axios.get(`https://justinmeimar.com/api/compiler/get-file?program=${"input_compiler_vector.txt"}`)
                 .then(response => {
                     console.log(response.data);
                     return response.data; 

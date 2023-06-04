@@ -90,8 +90,7 @@ function RegexContent() {
 
     async function getNfa(expr, string) {
         try {
-            // const res = await axios.get(`https://justin-terminal-server.com:3443/api/regex/${expr}/${string}`);
-            const res = await axios.get(`http://localhost:8080/api/regex/${expr}/${string}`);
+            const res = await axios.get(`https://justinmeimar.com/api/regex/${expr}/${string}`);
             console.log(res.data);
             return res.data;
         } catch(error) {

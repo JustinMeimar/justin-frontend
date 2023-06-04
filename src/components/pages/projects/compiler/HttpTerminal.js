@@ -10,8 +10,7 @@ async function awaitProgramOutput(program, input) {
         console.log("program:", program);
         console.log("input:", input);
 
-        // const post = axios.post('https://justin-terminal-server.com:3443/post', {"program": program, "input" : input})
-        const post = axios.post('http://localhost:8080/post', {"program": program, "input" : input})
+        const post = axios.post('https://justinmeimar.com/api/compiler/post', {"program": program, "input" : input})
             .then(response => {
                 if (response.data.stdout ) {
                     return response.data.stdout;
