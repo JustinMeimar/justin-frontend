@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './css/HomePage.css' 
 
 import InfoModal from '../InfoModal.js';
+import AboutSitePage from "./about/AboutSitePage.js";
 
 function HomePage() {
     
@@ -22,14 +23,7 @@ function HomePage() {
 
     return(
         <div className="home_page">
-            <div class="jumbotron jumbotron-fluid"> 
-                <div class="container">
-                    <h1 class="display-4">Justin's Website</h1>
-                    <p class="lead">Welcome to my webiste  &#129303; </p>
-                    <button onClick={handleOpenModal}>Open Info</button>
-                    <InfoModal isOpen={isModalOpen} onRequestClose={handleCloseModal} content={modalContent}/>
-                </div>
-            </div>
+            <AboutSitePage />
         </div> 
     );
 }

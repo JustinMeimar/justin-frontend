@@ -25,7 +25,8 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
         console.log("get program: ", program);
         const fetchData = async () => {
             // const get = axios.get(`https://justin-terminal-server.com:3443/get-file?program=${program}`)
-            const get = axios.get(`http://localhost:3443/get-file?program=${program}`)
+            const get = axios.get(`http://localhost:8080/get-file?program=${program}`)
+            // const get = axios.get(`http://localhost:8080/`)
                 .then(response => {
                     console.log(response.data);
                     return response.data; 
@@ -57,14 +58,21 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-value="input_compiler_quicksort.txt" onClick={handleProgramSelection}>Quick Sort</a>
                     <a class="dropdown-item" data-value="input_compiler_mergesort.txt" onClick={handleProgramSelection}>Merge Sort</a>
+                    <a class="dropdown-item" data-value="input_compiler_fibonnaci.txt" onClick={handleProgramSelection}>Fibonnaci</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-value="input_compiler_filter.txt" onClick={handleProgramSelection}>Filter</a>
                     <a class="dropdown-item" data-value="input_compiler_generator.txt" onClick={handleProgramSelection}>Generator</a>
+                    <a class="dropdown-item" data-value="input_compiler_iterator.txt" onClick={handleProgramSelection}>Iterator Loop</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-value="input_compiler_vector.txt" onClick={handleProgramSelection}>Vector</a>
                     <a class="dropdown-item" data-value="input_compiler_matrix.txt" onClick={handleProgramSelection}>Matrix</a>
+                    <a class="dropdown-item" data-value="input_compiler_tuple.txt" onClick={handleProgramSelection}>Tuple</a>
+                    <div class="dropdown-divider"></div> 
+                    <a class="dropdown-item" data-value="input_compiler_control_flow.txt" onClick={handleProgramSelection}>Control Flow</a>
+                    <a class="dropdown-item" data-value="input_compiler_forward_decl.txt" onClick={handleProgramSelection}>Forward Declaration</a>
+                    <a class="dropdown-item" data-value="input_compiler_type_promotion.txt" onClick={handleProgramSelection}>Type Promotion</a>
+                    <a class="dropdown-item" data-value="input_compiler_pass_by_reference.txt" onClick={handleProgramSelection}>Pass by Reference</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" data-value="input_compiler_fibonnaci.txt" onClick={handleProgramSelection}>Fibonnaci</a>
                 </div>
             </div>
         );
@@ -75,7 +83,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
     async function awaitRequest() {
 
         const fetchData = async () => {
-            const get = axios.get(`http://justin-terminal-server.com:3443/get-file?program=${"input_compiler_vector.txt"}`)
+            const get = axios.get(`http://justin-terminal-server.com:8080/get-file?program=${"input_compiler_vector.txt"}`)
                 .then(response => {
                     console.log(response.data);
                     return response.data; 
@@ -102,7 +110,7 @@ function CodeEditor({ passUpInput, default_input, default_program }) {
                     padding={10}
                     style={{
                         fontFamily: '"Fira", "Fira Mono", monospace',
-                        fontSize: 15,
+                        fontSize: 16,
                         backgroundColor: '#303030',
                     }}
                 />

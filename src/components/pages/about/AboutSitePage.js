@@ -11,13 +11,13 @@ function AboutSitePage() {
 
   const aboutSiteTitle = () => {
     return (
-      <div> &#129313; About Site </div>
+      <div> &#128044; Welcome to my Page </div>
     );
   }
   
   const aboutSiteSubtitle = () => {
     return (
-      <div> About this website </div>
+      <div></div>
     );
   }
   return (

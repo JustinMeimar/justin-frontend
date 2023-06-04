@@ -36,3 +36,13 @@
   font-size: 20px;
   font-weight: 300;
 }
+
+.about_site_info a {
+    color: #85fdff;
+    text-decoration: none;
+}
+
+.about_site_info a:hover {
+    color: #85fdff;
+    text-decoration: underline;
+}

@@ -34,7 +34,28 @@ function CompilerContent() {
     const [input, setInput] = useState();
     const [section, setSection] = useState('about');
  
-    const default_input = "procedure main() returns integer {\n \"Hello, World\" -> stdout;\n return 0;\n}";  
+    const default_input = `// Hello, World!
+// typedefs 
+typedef integer int;
+typedef string StringTy;
+
+procedure main() returns integer {
+
+    // declare a string variable
+    StringTy say_hello = "Hello, World";
+    
+    // pipe string to stdout 
+    say_hello -> stdout;
+
+    // use a literal string 
+    "Hello, World" -> stdout;
+
+    // just a char... 
+    'd' -> stdout;
+    'd'-> stdout;
+
+    return 0;
+}`;  
     const terminal = <HttpTerminal program={"gazprea"} input={input}/>
     
     const editor = <CodeEditor 

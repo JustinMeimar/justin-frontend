@@ -4,23 +4,15 @@ import './css/ProjectsPage.css'
 
 export const project_descriptions = {
     "compiler": {
-    title: "NAGC Compiler",
+    title: "NAGC Compiler Explorer",
     description: "A fully functional compiler. Gazprea uses ANTLR frontend to generatae a parse tree. After transforming \
         the parse tree to an AST we implement multiple \ AST walks including symbol definition,\
         resolution, static type checking and finally code generation. We target LLVM IR to be portable, then\
         use the Clang compiler to generate an executable.",
     date: "2022-05-01",
     lang: "C++",
+    gui: true,
     url: "/projects/compiler"
-    },
-    "b-tree": {
-    title: "B+ Tree",
-    description: "A C++ implementation of a B-Tree for indexing an ordered database.\
-      Assumes non-repeating indexes and operates by spawning nodes, pushing and copying up indexes when necessary.\
-      Each non-leaf node can have three children so a index takes log3(N)",
-    date: "2022-04-01",
-    lang: "C++",
-    url: "/projects/b-tree"
     },
     "nfa-regex": {
     title: "Regex Engine",
@@ -29,14 +21,26 @@ export const project_descriptions = {
       be executed to determine if a string matches the regular expression",
     date: "2022-03-01",
     lang: "C++",
+    gui: true,
     url:"/projects/nfa-regex"
     },
+    "b-tree": {
+    title: "B+ Tree",
+    description: "A C++ implementation of a B-Tree for indexing an ordered database.\
+      Assumes non-repeating indexes and operates by spawning nodes, pushing and copying up indexes when necessary.\
+      Each non-leaf node can have three children so a index takes log3(N)",
+    date: "2022-04-01",
+    lang: "C++",
+    gui: false,
+    url: "/projects/b-tree"
+    }, 
     "vn-8bit": {
     title: "VN 8-Bit",
     description: "A 8-bit CPU emulator and assembler for a custom ISA. The CPU and ISA are pretty restricted\
     only 4Kb program memory, small address range for jumps, etc. The assembler handles label aliasing and conversion to binary instruction format.",
     date: "2021-07-01",
     lang: "Rust",
+    gui: false,
     url:"/projects/vn-8bit"
     }
 };
@@ -57,16 +61,21 @@ function ProjectsPage() {
            &#128736; Projects
         </div>
         <div className="projects_page_subtitle">
-          Some projects with web GUIs 
+          Projects with web GUIs (some in progress)  
         </div>
       </div> 
     );
   }
   function ProjectList() {
       const projects = Object.keys(project_descriptions).map((key) => {
-        const { title, description, date, lang } = project_descriptions[key];
+        const { title, description, date, lang, gui } = project_descriptions[key];
         return (
           <div key={title} className="project_container" onClick={() => linkProject(key)}>
+              { gui &&
+                <div className="gui_tag">
+                  &#128126; GUI
+                </div>
+              }
               <div className="project_title_lang_container">
                 <div className="project_title">
                   {title}

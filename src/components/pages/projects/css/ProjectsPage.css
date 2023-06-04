@@ -6,6 +6,20 @@
   font-stretch: condensed; 
 }
 
+.gui_tag {
+    position: absolute;
+    top: 10px;   /* Adjust these values as necessary */
+    right: 10px;  /* Adjust these values as necessary */
+    background-color: #0ea8fb;   /* Green background */
+    color: white;   /* White text */
+    padding: 5px 10px;   /* Adjust these values as necessary */
+    margin-top: 7px; 
+    margin-right: 7px; 
+    border-radius: 3px;   /* Adjust as necessary for the roundness */
+    font-size: 14px;   /* Adjust as necessary for the text size */
+
+  }
+
 .projects_page_title {
 
   margin: auto; /* centers the container */
@@ -30,6 +44,7 @@
 
 .project_container {
   width: 800px; 
+  position: relative; 
   margin: auto;
   transition: all 0.3s ease-in-out;
   margin-top: 40px;
@@ -48,7 +63,7 @@
 }
 
 .project_container:hover .project_title{
-  color: rgb(133, 253, 255);
+  color: #85fdff;
 }
 
 .project_title_lang_container {

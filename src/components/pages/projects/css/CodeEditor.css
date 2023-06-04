@@ -3,10 +3,10 @@
   margin: 0 auto;
   height: 100%;
   padding-top: 10px;
-  color: white;
+  color: rgb(224, 255, 255);
 }
 
 .code_editor {
-  height: 350px;
-  flex-grow: 1;
+  /* height: 500px; */
+  /* flex-grow: 1; */
 }

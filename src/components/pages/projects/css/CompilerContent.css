@@ -27,7 +27,7 @@
 
 .editor-terminal-container {
     display: flex;
-    max-height: 450px;
+    /* max-height: 1450px; */
     overflow-x: hidden;
 }
 

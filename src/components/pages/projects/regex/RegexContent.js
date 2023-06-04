@@ -6,8 +6,10 @@ function RegexContent() {
 
     const [expr, setExpr] = useState("abc");
     const [string, setString] = useState("abc");
+
     const [accept, setAccept] = useState(false);
-    const [acceptMessage, setAcceptMessage] = useState(true);
+    const [acceptMessage, setAcceptMessage] = useState("");
+
     const [graph, setGraph] = useState({nodes: [], edges: []});
     const [startState, setStartState] = useState(0);
     const [acceptStates, setAcceptStates] = useState([]); 
@@ -86,10 +88,6 @@ function RegexContent() {
         }
     }, [states, edges]); 
 
-    useEffect(() => {
-        console.log(graph);
-    }, [graph]);
-
     async function getNfa(expr, string) {
         try {
             // const res = await axios.get(`https://justin-terminal-server.com:3443/api/regex/${expr}/${string}`);
@@ -115,36 +113,27 @@ function RegexContent() {
         } 
     }
 
-    async function runString() { 
+    async function runString() {
+        console.log("running string"); 
         if (string != "") {
             const data = await getNfa(expr, string); 
-            if (data != null) {
-                setAccept(data.accept);
+            if (data != null) { 
+                if (data.accept === 'true') {
+                    setAccept(true);
+                    setAcceptMessage("Accepted!")
+                } else {
+                    setAccept(false);
+                    setAcceptMessage("Rejected")
+                }
             }
         }
-        console.log("accept:", accept);
-        if (accept) {
-            alert("String Accepted!");
-        } else {
-            alert("String Rejected!");
-        }
-        return (<div>{acceptMessage}</div>);
     }
-
-    const handleInputChange = (event) => {
+const handleInputChange = (event) => {
         setExpr(event.target.value);
     }
     
     const handleStringChange = (event) => {
         setString(event.target.value);
-    }
-
-    const showAcceptMessage = () => {
-        const acceptMessage = (accept == true) ? "accept" : "reject";
-        console.log("accept message:", accept);
-        return (
-            <div> {accept} </div>
-        );
     }
 
     var options = { 
@@ -200,22 +189,24 @@ function RegexContent() {
                     value={string}
                     onChange={handleStringChange}
                   />
-                </div> 
-                 
-                <div className="regex_buttons">
-                    <button class="btn btn-primary" 
-                            type="button" 
-                            data-toggle="collapse" 
-                            onClick={() => { drawNfa() }}
-                    >Generate NFA</button> 
-                    <button class="btn btn-success" 
-                            type="button" 
-                            data-toggle="collapse" 
-                            onClick={() => { runString() }}
-                    >Run String</button>
-                </div> 
+                </div>  
+                    <div className="regex_buttons">
+                        <button class="btn btn-primary" 
+                                type="button" 
+                                data-toggle="collapse" 
+                                onClick={() => { drawNfa() }}
+                        >Generate NFA</button>  
+                        <button class="btn btn-success" 
+                                type="button" 
+                                data-toggle="collapse" 
+                                onClick={() => { runString() }}
+                        >Run String</button>
+                        <div className="accept_message" style={{ color: accept ? '#27a500' : 'white' }}>
+                            { acceptMessage }
+                        </div> 
+                    </div> 
                 </div>
-            <div className="regex_graph"> 
+            <div className="regex_graph">  
                 <Graph 
                     graph={ graph }
                     options={ options }
@@ -224,6 +215,7 @@ function RegexContent() {
                     }}
                 /> 
             </div>
+            <div style={{"height": '100px'}}></div>
         </div>     
     );
 }

@@ -1,6 +1,9 @@
 .regex_buttons {
     color: white;
     padding-bottom: 10px;
+    display: flex;
+    justify-content: left;  /* Adjust the items to distribute the available space */
+    align-items: center;  /* Align the items vertically in the center */
 }
 
 .regex_control {
@@ -51,4 +54,13 @@
 
 .custom-label {
   margin-right: 20px;   /* Adjust as necessary for the space between the label and the input */
+}
+
+.accept_message {
+    color: #27a500;
+    margin: auto;
+    font-size: 32px;
+    background-color: #3e3e3e;
+    margin-top: 10px;
+    border-radius: 10px;
 }

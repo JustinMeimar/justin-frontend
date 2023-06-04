@@ -4,7 +4,7 @@ import "./css/ProjectBase.css";
 import InfoModal from "../../InfoModal.js";
 import InfoImage from "../../../static/info.png";
 
-function ProjectBase({title, subtitle, content, info_markdown}) {
+function ProjectBase({title, subtitle, content, modal_info}) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,7 +36,7 @@ function ProjectBase({title, subtitle, content, info_markdown}) {
             {subtitle}
         </div>
         <InfoButton/>
-        <InfoModal isOpen={isModalOpen} onRequestClose={handleCloseModal} content={info_markdown} />
+        <InfoModal isOpen={isModalOpen} onRequestClose={handleCloseModal} content={modal_info} />
       </div> 
     );
   }

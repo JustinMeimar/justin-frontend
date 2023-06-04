@@ -58,14 +58,12 @@ function RegexProject() {
     4. union 'U' 
   `;
 
-
-
   return (
     <ProjectBase 
       title={RegexProjectTitle()} 
       subtitle={RegexProjectSubtitle()}
       content={RegexProjectContent()}  
-      info_markdown={modalContent}
+      modal_info={modalContent}
     />
   );
 }

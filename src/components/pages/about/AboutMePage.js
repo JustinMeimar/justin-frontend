@@ -6,7 +6,6 @@ function AboutMePage() {
   const aboutMeContext = () => {
     return (
       <AboutMeInfo/>
-      // <div> Testing Content </div>
     );
   }
 

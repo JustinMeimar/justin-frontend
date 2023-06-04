@@ -1,41 +1,29 @@
 export const AboutSiteInfo = () => {
     return (
         <div className="about_site_info">
-            
-            <br></br>
-           The idea for this page came after many failed attempts to create Javascript GUI
-           visualizations of some low-level implementations.  
-          
-           <br></br>
-           <br></br>
-           I originally planned to create a remote shell window that would allow the user
-           to execute the binaries on a server as well as run other commands. However, I quickly
-           realized that there were some obvious security risks in creating a publicly accessible remote shell
-           into my server.
 
-           <br></br>
-           <br></br>
-           The current model involves a text editor, which can be pre-filled by a GET request for some
-           defined input programs, and a terminal emulator, which displays the results of the program execution.
-           The terminal still has some functionality, however the available commands are on a whitelist model. Only commands 
-           such as ls and clear etc. are so far allowed.
+           Lots of cool programming projects hide away in the command line.
+           I made this site to bring some of my favourite projects to life. 
            
-           <br></br>
-           <br></br>
-           When the user clicks "Run" a POST request is sent with the program and input to run.
-           The client waits for the server spawns a subprocess to execute the input on the program and responds with the stdout and
-           stderr. Once received, the client writes the stdout/err onto the terminal, just as if the user had
-           run the program locally!
+            <br></br>
+            <br></br>
+           
+           To avoid programming too much JavaScript, all the GUI projects implement serialization methods in their
+           original language so that a JSON representation of the program state can be retrieved
+           and rendered with a JS graphics library.
+         
+            <br></br>
+            <br></br>
+            Since this site required a backend for running my projects, I originally had to rent a server. 
+            This was costing me big &#128176; ($10 per month) so I set up a home sever to hopefully save cost over the long run. 
+            If you're able to reach this site, your request traveled to a little bee-link U59 running Ubuntu
+            server in my room.  
+            <br></br>
+            <br></br>
+            The <a href="/projects/compiler">Compiler Explorer</a> is a great way 
+            to put the poor bee-link U59 to the test in all sorts of creative ways. If you're curious about 
+            home server setup, see my <a href="/blog">blog</a>.
 
-
-           <br></br>
-           <br></br>
-           The inputs are also not restrained to the dropdown selection. The user can input any input they want
-           by using the Editor component. Especially in the case of the Compiler, this makes it great for experimenting
-           with the language features for oneself.
-      
-           <br></br>
-           <br></br>
         </div>
     );
 }
