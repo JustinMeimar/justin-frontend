@@ -1,0 +1,38 @@
+.blog_container {
+  width: 800px; 
+  position: relative; 
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+  margin-top: 40px;
+  color: white;
+  background-color: #3e3e3e;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px; 
+  transition: transform 0.3s ease;
+}
+
+.blog_date {
+    font-style: italic;
+    margin-bottom: 4px; 
+}
+
+.blog_title {
+    font-size: 22px;
+    font-weight: 290;
+}
+
+.blog_container:hover {
+  opacity: 0.95;
+  transform: scale(0.99);
+}
+
+.blog_container:hover .blog_title{
+  color: #85fdff;
+}
+
+/* #root {
+    background-color: khaki;
+} */

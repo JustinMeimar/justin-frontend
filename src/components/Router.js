@@ -5,10 +5,13 @@ import BlogPage from './pages/blog/BlogPage.js';
 
 import AboutMePage from "./pages/about/AboutMePage.js";
 import AboutSitePage from "./pages/about/AboutSitePage.js";
-
+//projects
 import CompilerProject from "./pages/projects/compiler/Compiler.js";
 import RegexProject from "./pages/projects/regex/Regex.js";
 import BTreeProject from "./pages/projects/btree/BTree.js";
+//blogs
+import TestBlog from "./pages/blog/blogs/1_TestBlog.js";
+import HomeserverRecipe from "./pages/blog/blogs/2_HomeServerRecipe.js";
 
 function MainRouter() {
   return (
@@ -27,7 +30,10 @@ function MainRouter() {
             <Route path="/projects/b-tree" element={<BTreeProject/>} />
             <Route path="/projects/nfa-regex" element={<RegexProject/>} />
             <Route path="/projects/vn-8bit" element={<RegexProject/>} />
-        
+            
+            
+            <Route path="/blog/test-blog" element={<TestBlog/>} />
+                  
         </Routes>
     </BrowserRouter>
      
