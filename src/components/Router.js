@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import {Route, BrowserRouter, Routes} from 'react-router-dom';
 import HomePage from "./pages/HomePage.js";
 import ProjectsPage from "./pages/projects/ProjectsPage.js";
@@ -11,14 +12,14 @@ import RegexProject from "./pages/projects/regex/Regex.js";
 import BTreeProject from "./pages/projects/btree/BTree.js";
 //blogs
 import TestBlog from "./pages/blog/blogs/1_TestBlog.js";
-import HomeserverRecipe from "./pages/blog/blogs/2_HomeServerRecipe.js";
+import HomeServerRecipe from "./pages/blog/blogs/2_HomeServerRecipe.js";
 
 function MainRouter() {
+
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter basename={process.env.PUBLIC_URL} className="MainRouter">
         <Routes>
 
-            <Route path="/justin-frontend/" element={<HomePage/>}/>
             <Route path="/" element={<HomePage/>}/>
             <Route path="/projects/" element={<ProjectsPage/>} />
             <Route path="/blog/" element={<BlogPage/>} />
@@ -29,14 +30,12 @@ function MainRouter() {
             <Route path="/projects/compiler" element={<CompilerProject/>} />
             <Route path="/projects/b-tree" element={<BTreeProject/>} />
             <Route path="/projects/nfa-regex" element={<RegexProject/>} />
-            <Route path="/projects/vn-8bit" element={<RegexProject/>} />
-            
-            
+             
             <Route path="/blog/test-blog" element={<TestBlog/>} />
+            <Route path="/blog/home-server-recipe" element={<HomeServerRecipe/>} />
                   
         </Routes>
-    </BrowserRouter>
-     
+    </BrowserRouter> 
   );
 }
 

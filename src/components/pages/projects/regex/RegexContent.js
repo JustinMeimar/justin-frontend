@@ -1,6 +1,7 @@
 import { React, useState, useEffect, useRef } from 'react';
 import Graph from "react-graph-vis";
 import axios from 'axios';
+import InfoModal from '../../../InfoModal.js';
 
 function RegexContent() {
 
@@ -15,7 +16,9 @@ function RegexContent() {
     const [acceptStates, setAcceptStates] = useState([]); 
     const [states, setStates] = useState([]);   
     const [edges, setEdges] = useState([]);   
-    const ref = useRef(null);    
+    const ref = useRef(null);   
+    
+
 
     const populateGraphStates = (nodesArray) => {
         console.log(states);
@@ -114,12 +117,14 @@ function RegexContent() {
 
     async function runString() {
         console.log("running string"); 
+        // get
+        drawNfa(); 
         if (string != "") {
             const data = await getNfa(expr, string); 
             if (data != null) { 
                 if (data.accept === 'true') {
                     setAccept(true);
-                    setAcceptMessage("Accepted!")
+                    setAcceptMessage("Accepted!");
                 } else {
                     setAccept(false);
                     setAcceptMessage("Rejected")
@@ -127,7 +132,8 @@ function RegexContent() {
             }
         }
     }
-const handleInputChange = (event) => {
+
+    const handleInputChange = (event) => {
         setExpr(event.target.value);
     }
     
@@ -154,7 +160,6 @@ const handleInputChange = (event) => {
              <div className="regex_control">
                 <div className="d-flex align-items-center">
                     <label htmlFor="text-input" className="custom-label">Regular Expr: </label> 
-
                     <input
                         type="text"
                         id="text-input"
@@ -190,11 +195,6 @@ const handleInputChange = (event) => {
                   />
                 </div>  
                     <div className="regex_buttons">
-                        <button class="btn btn-primary" 
-                                type="button" 
-                                data-toggle="collapse" 
-                                onClick={() => { drawNfa() }}
-                        >Generate NFA</button>  
                         <button class="btn btn-success" 
                                 type="button" 
                                 data-toggle="collapse" 

@@ -1,18 +1,14 @@
 import React from 'react';
 import BaseBlog from '../BaseBlog';
 
+import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+
+import Content from './1_TestBlog.md'
+
 const TestBlog = () => {
-    const markdownContent = `
-    # Heading
-
-    Some text.
-
-    - A list item
-    - Another list item
-    `;
-
     return (
-        <BaseBlog title="My Blog Post" content={markdownContent} />
+        <BaseBlog content={Content}/>
     );
 };
 

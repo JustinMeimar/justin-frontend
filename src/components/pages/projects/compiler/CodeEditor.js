@@ -3,9 +3,7 @@ import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs';
 import axios from 'axios';
 import "../css/CodeEditor.css"
-import 'prismjs/components/prism-clike';
-import 'prismjs/components/prism-javascript';
-import 'prismjs/themes/prism.css'; //Example style, you can use another
+import 'prismjs/themes/prism-dark.css'; 
 
 function CodeEditor({ passUpInput, default_input, default_program }) {
     

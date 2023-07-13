@@ -15,9 +15,9 @@ export const AboutSiteInfo = () => {
             <br></br>
             <br></br>
             Since this site required a backend for running my projects, I originally had to rent a server. 
-            This was costing me big &#128176; ($10 per month) so I set up a home sever to hopefully save cost over the long run. 
-            If you're able to reach this site, your request traveled to a little bee-link U59 running Ubuntu
-            server in my room.  
+            This server was costing enough money to motivate me to create a homeserver. Hopefully, over the long run,
+            I should save a few bucks. If you're able to reach this site, your request traveled to a 
+            small form factor PC called a bee-link U59 thats running in my room.             
             <br></br>
             <br></br>
             The <a href="/projects/compiler">Compiler Explorer</a> is a great way 

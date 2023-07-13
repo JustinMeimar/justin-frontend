@@ -1,19 +1,13 @@
 import React from 'react';
 import BaseBlog from '../BaseBlog';
+import { useState, useEffect } from 'react'
+import ReactMarkdown from 'react-markdown'
+import Content from './2_HomeServerRecipe.md'
 
-const HomeServerRecipie = () => {
-    const markdownContent = `
-    # Heading
-
-    Homeserver!!
-
-    - A list item
-    - Another list item
-    `;
-
+const HomeServerRecipe = () => {
     return (
-        <BaseBlog title="My Easy Home Server Recipie" content={markdownContent} />
+        <BaseBlog content={Content}/>
     );
 };
 
-export default HomeServerRecipie;
+export default HomeServerRecipe;

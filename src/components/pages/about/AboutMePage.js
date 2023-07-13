@@ -11,7 +11,7 @@ function AboutMePage() {
 
   const aboutMeTitle = () => {
     return (
-      <div> &#129313; About Me </div>
+      <div> &#128034; About Me </div>
     );
   }
   

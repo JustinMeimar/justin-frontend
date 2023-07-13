@@ -1,15 +1,14 @@
-/* .home_page {
-    width: 35%;
-    margin: auto;
-    padding-left: 120px;
-    margin-top: 90px;
-    color: rgb(255, 255, 255); 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-radius: 20px;
-    background-color: #3e3e3e;
-} */
+.home_page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  width: 100%;
+}
 
-/* .hug {
-    margin-top: 0px;
-} */
+.page_wrapper {
+  display: grid;
+  place-items: center;
+  min-height: 80vh; 
+}

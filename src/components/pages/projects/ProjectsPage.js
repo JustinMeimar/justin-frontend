@@ -20,8 +20,7 @@ export const project_descriptions = {
       The parsed regular expression is then used to generate a Non-deterministic Finite Automata (NFA), which can\
       be executed to determine if a string matches the regular expression",
     date: "2022-03-01",
-    lang: "C++",
-    gui: true,
+    lang: "C++", gui: true,
     url:"/projects/nfa-regex"
     },
     "b-tree": {
@@ -32,7 +31,7 @@ export const project_descriptions = {
     date: "2022-04-01",
     lang: "C++",
     gui: false,
-    url: "/projects/b-tree"
+    url: "https://github.com/JustinMeimar/B-Tree"
     }, 
     "vn-8bit": {
     title: "VN 8-Bit",
@@ -41,7 +40,7 @@ export const project_descriptions = {
     date: "2021-07-01",
     lang: "Rust",
     gui: false,
-    url:"/projects/vn-8bit"
+    url:"https://github.com/JustinMeimar/vn-8bit"
     }
 };
 
@@ -51,7 +50,11 @@ function ProjectsPage() {
   
   const linkProject = (key) => { 
     const url = project_descriptions[key]["url"]; 
-    navigate(url);
+    if (url.startsWith("https")) {
+      window.open(url, '_blank')
+    } else {
+      navigate(url);
+    }
   }
 
   const ProjectTitle = () => {
@@ -103,6 +106,7 @@ function ProjectsPage() {
     <div className="projects_container">
       <ProjectTitle />
       <ProjectList />
+      <br/>
     </div>
   );
 }

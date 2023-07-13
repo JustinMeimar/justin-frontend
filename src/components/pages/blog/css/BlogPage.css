@@ -3,7 +3,7 @@
   position: relative; 
   margin: auto;
   transition: all 0.3s ease-in-out;
-  margin-top: 40px;
+  margin-top: 20px;
   color: white;
   background-color: #3e3e3e;
   padding-top: 20px;
@@ -16,7 +16,8 @@
 
 .blog_date {
     font-style: italic;
-    margin-bottom: 4px; 
+    margin-top: 4px;
+    font-size: 15px; 
 }
 
 .blog_title {
@@ -32,7 +33,3 @@
 .blog_container:hover .blog_title{
   color: #85fdff;
 }
-
-/* #root {
-    background-color: khaki;
-} */

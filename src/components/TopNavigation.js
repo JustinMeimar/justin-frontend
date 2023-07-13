@@ -1,4 +1,5 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
+import { LightModeContext } from '../App.js';
 import ResumePDF from '../static/Resume.pdf';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -53,6 +54,7 @@ function OffCanvasExample({ name, scroll, backdrop, show, handleClose }) {
 function CollapsibleExample() {
     const [show, setShow] = useState(false);
 
+    const {lightMode, setLightMode} = useContext(LightModeContext);
     const handleClose = () => setShow(false);
     const toggleShow = () => setShow((s) => !s);
 
@@ -80,6 +82,17 @@ function CollapsibleExample() {
                 <Nav>
                     <Nav.Link target="_blank" href="https://github.com/JustinMeimar">Github <img src={gitHubImage} alt="Github" style={{width: "20px", height: "20px"}}/></Nav.Link>
                     <Nav.Link target="_blank" href="https://www.linkedin.com/in/justin-meimar-908326239/">LinkedIn <img src={linkedInImage} alt="LinkedIn" style={{width: "20px", height: "20px"}}/></Nav.Link>
+                   {/* <div 
+                      name="lightMode" 
+                      style={{ color: 'white'}} 
+                      onClick={ () => {
+                        console.log(lightMode);
+                        setLightMode(prevMode => prevMode === 'light' ? 'dark' : 'light');
+                      }}
+                    >
+                      Change Color
+                    </div> */}
+ 
                 </Nav>
                 </Navbar.Collapse>
             </Container>

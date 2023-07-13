@@ -1,53 +1,36 @@
-/* 
 .base_blog_content {
-    color: white;
-    width: 500px;
+    /* color: #cccccc; */
+    max-width: 900px;
     margin: auto;
     color: rgb(255, 255, 255); 
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px; 
-    padding-right: 20px;
+    padding: 20px;
 }
 
-.base_blog_title {
-    color: white;
-    width: 500px;
-    margin: auto;
-    padding-left: 20px; 
-    padding-right: 20px;
-}
 
 .base_blog_container {
-    background-color: khaki;
-    width: min-content;
+    width: 90%;
     margin: auto;
+    max-width: 900px;
+    margin-top: 40px;
     border-radius: 20px;
     background-color: #3e3e3e;
-} */
-
-.base_blog_content {
-    color: white;
-    max-width: 700px;
-    margin: auto;
-    color: rgb(255, 255, 255); 
-    padding: 20px;
+    font-weight: 300; /* 400 corresponds to 'normal' font weight. 300 might be too thin, depending on the font */
+    font-size: 18px; /* Slightly larger text can be easier to read. Adjust as needed */
+    line-height: 1.6; /* Line height can significantly affect readability. 1.5 - 2 is often a good range */
+    word-spacing: 0.2em; /* Spacing between words. Adjust as needed */
+    letter-spacing: 0.02em; /* Increasing spacing between letters can sometimes improve readability */
+    color: #F5F5F5; /* This light color should contrast well with the dark background */
+    padding: 20px; /* Padding inside the container can make the text more comfortable to read */
 }
 
-.base_blog_title {
-    color: white;
-    max-width: 700px;
-    margin: auto;
-    margin-top: 100px;
-    padding: 20px;
-    font-size: 2em; /* adjust as needed */
-}
-
-.base_blog_container {
-    background-color: khaki;
+.persistent_blog_title {
     width: 90%;
-    max-width: 800px;
     margin: auto;
-    border-radius: 20px;
-    background-color: #565656;
+    max-width: 900px;
+    margin-top: 40px;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 48px;
+    font-weight: 300;
 }

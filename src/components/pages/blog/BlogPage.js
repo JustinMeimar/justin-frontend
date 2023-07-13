@@ -20,7 +20,7 @@ export const blog_descriptions = {
     "1": {
       title: "My Quick and Simple Homeserver Recipe",
       date: "2023-07-12",
-      url: "/blog/homeserver-recipe"
+      url: "/blog/home-server-recipe"
     },  
 };
 
@@ -52,8 +52,8 @@ function BlogPage() {
         console.log(date);
         return (
           <div key={title} className="blog_container" onClick={() => linkProject(key)}> 
-            <div className="blog_date">{formatDate(date)}</div>
             <div className="blog_title">{title}</div>  
+            <div className="blog_date">{formatDate(date)}</div>
           </div>
       );
     });
